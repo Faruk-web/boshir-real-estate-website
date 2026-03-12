@@ -31,18 +31,18 @@ class HomeController extends Controller
             $item->privacy = Str::limit($item->privacy, 70);
             return $item;
         });
-        $Slider=Slider::select('id','image','title','s_title','number','client')->get();
-        $advocate = Privacy::select('id', 'name', 'title', 'image')->where('status',1)->get();
+        $Slider=Slider::select('id','image','title','s_title','link')->get();
+        $team = Privacy::select('id', 'name', 'title', 'image')->where('status',2)->limit(4)->get();
         $business=Business::find(1);
         $peace=Peace::find(1);
         $logo=Logo::select('id','multi_logo')->get();
-        $client=Client::select('id','name','title','privacy')->get();
+        $client=Client::select('id','name','title','privacy','image')->get();
         $service = Board::select('id', 'name', 'image', 'privacy')->orderBy('id', 'DESC')->get()->map(function ($item) {
             $item->privacy = Str::limit($item->privacy, 100);
             return $item;
         });
 
-        return view('front.home.home',compact('Slider','advocate','prectice','blog','business','peace','logo','client','service'));
+        return view('front.home.home',compact('Slider','team','prectice','blog','business','peace','logo','client','service'));
     }
     public function service()
     {

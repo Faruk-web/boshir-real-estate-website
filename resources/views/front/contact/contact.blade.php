@@ -8,131 +8,108 @@
      $settings = App\Models\Category::find(133);
       @endphp
 
-<div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
-        <div class="container">
-            <div class="breadcumb-content">
-                <h1 class="breadcumb-title">{{$settings->category_name}}</h1>
-                <ul class="breadcumb-menu">
-                    <li><a href="{{route('home')}}">Home</a></li>
-                    <li>{{$settings->description}}</li>
-                </ul>
-            </div>
+
+ <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-1 text-white animated slideInDown">Contact Us {{$settings->category_name}}</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb text-uppercase mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Contact Us {{$settings->description}}</li>
+                </ol>
+            </nav>
         </div>
     </div>
-    <!--==============================
-Contact Area  
-==============================-->
-@php
-     $settings = App\Models\Category::find(134);
-      @endphp
-    <div class="contact-area-2 space-top" id="contact-sec">
+    <!-- Page Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
         <div class="container">
-            <div class="row gy-4 justify-content-center">
-                <div class="contact-icon-wrap">
-                    <div class="info-box">
-                        <div class="info-box_icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/contact-icon-1.svg" alt="shape-img">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h4 class="section-title">Contact Us</h4>
+                <h1 class="display-5 mb-4">If You Have Any Query, Please Feel Free Contact Us</h1>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="d-flex flex-column justify-content-between h-100">
+                        <div class="bg-light d-flex align-items-center w-100 p-4 mb-4">
+                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-dark" style="width: 55px; height: 55px;">
+                                <i class="fa fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div class="ms-4">
+                                <p class="mb-2">Address</p>
+                                <h3 class="mb-0">123 Street, New York, USA</h3>
+                            </div>
                         </div>
-                        <div class="info-contnt">
-                            <h4 class="footer-info-title">Location</h4>
-                            <p class="info-box_text">{{$setting->location}}</p>
+                        <div class="bg-light d-flex align-items-center w-100 p-4 mb-4">
+                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-dark" style="width: 55px; height: 55px;">
+                                <i class="fa fa-phone-alt text-primary"></i>
+                            </div>
+                            <div class="ms-4">
+                                <p class="mb-2">Call Us Now</p>
+                                <h3 class="mb-0">+012 345 6789</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="info-box">
-                        <div class="info-box_icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/contact-icon-2.svg" alt="shape-img">
-                        </div>
-                        <div class="info-contnt">
-                            <h4 class="footer-info-title">Phone</h4>
-
-                            <p class="info-box_text">
-                                <a target="_blank" href="tel:{{$setting->p_phone}}" class="info-box_link">{{$setting->p_phone}}</a>
-                                <a target="_blank" href="tel:{{$setting->s_phone}}" class="info-box_link">{{$setting->s_phone}}</a>
-                                <a target="_blank" href="tel:{{$setting->d_phone}}" class="info-box_link">{{$setting->d_phone}}</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="info-box">
-                        <div class="info-box_icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/contact-icon-3.svg" alt="shape-img">
-                        </div>
-                        <div class="info-contnt">
-                            <h4 class="footer-info-title">Email</h4>
-                            <p class="info-box_text">
-                                <a href="mailto:{{$setting->p_mail}}" class="info-box_link">{{$setting->p_mail}}</a>
-                                <a href="mailto:{{$setting->s_mail}}" class="info-box_link">{{$setting->s_mail}}</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="info-box">
-                        <div class="info-box_icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/contact-icon-4.svg" alt="shape-img">
-                        </div>
-
-                        <div class="info-contnt">
-                            <h4 class="footer-info-title">{{$settings->category_name}}</h4>
-                            <p class="info-box_text">{{$settings->description}}</p>
+                        <div class="bg-light d-flex align-items-center w-100 p-4">
+                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-dark" style="width: 55px; height: 55px;">
+                                <i class="fa fa-envelope-open text-primary"></i>
+                            </div>
+                            <div class="ms-4">
+                                <p class="mb-2">Mail Us Now</p>
+                                <h3 class="mb-0">info@example.com</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    @php
-     $settings = App\Models\Category::find(135);
-      @endphp
-    <div class="space-top">
-        <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-7">
-                    <form action="{{route('contact')}}" method="POST" class="contact-form style-4 " enctype="multipart/form-data">
-                    @csrf
-                        <h3 class="form-title text-start">{{$settings->description}}</h3>
-                        <div class="row">
-                            <div class="form-group col-md-12">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                                <i class="fas fa-user"></i>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <label for="name">Your Name</label>
+                                </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="phone">
-                                <i class="fas fa-user"></i>
-                                <small id="phoneError"></small>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                                <i class="fas fa-envelope"></i>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
                             </div>
-                            <div class="form-group col-12">
-                                <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Your Message"></textarea>
-                                <i class="fas fa-pencil"></i>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
                             </div>
-                            <div class="form-btn col-12">
-                                <button type="submit" class="th-btn style2">Send Message <i class="fa-regular fa-arrow-right-long"></i></button>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                             </div>
                         </div>
-                        <p class="form-messages mb-0 mt-3"></p>
                     </form>
                 </div>
-                <div class="col-lg-5">
-                    <div class="contact-page-thumb">
-                        <img src="{{ asset('front') }}/assets/img/contact/contact-right.jpg" alt="">
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-    <!--==============================
-Map Area  
-==============================-->
-    <div class="space">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="contact-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d913.0928835398264!2d90.41233361441613!3d23.734126978204902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b9001a73c661%3A0x190ce08404c76761!2sR.K.%20Roy%20%26%20Associates!5e0!3m2!1sbn!2sbd!4v1738750220831!5m2!1sbn!2sbd" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Contact End -->
+
+
+    <!-- Google Map Start -->
+    <div class="container-xxl pt-5 px-0 wow fadeIn" data-wow-delay="0.1s">
+        <iframe class="w-100 mb-n2" style="height: 450px;"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.016189774098!2d90.38095365698491!3d23.74680207520228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b9808a3bb0a1%3A0x401d694d92af3f44!2sImperial%20Estate%20%26%20Holdings%20Ltd.!5e0!3m2!1sen!2sbd!4v1773293769551!5m2!1sen!2sbd"
+            frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
+    <!-- Google Map End -->
+
 @endsection

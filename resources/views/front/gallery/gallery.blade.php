@@ -6,50 +6,47 @@ Gallery
     @php
         $setting = App\Models\Category::find(129);
       @endphp
-<div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
-        <div class="container">
-            <div class="breadcumb-content">
-                <h1 class="breadcumb-title">{{$setting->category_name}}</h1>
-                <ul class="breadcumb-menu">
-                    <li><a href="{{route('home')}}">Home</a></li>
-                    <li>{{$setting->description}}</li>
-                </ul>
-            </div>
+
+ <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-1 text-white animated slideInDown">Members {{$setting->category_name}}</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb text-uppercase mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Members {{$setting->description}}</li>
+                </ol>
+            </nav>
         </div>
     </div>
-    <!--==============================
-Gallery Area  
-==============================-->
-     @php
-        $setting = App\Models\Category::find(130);
-      @endphp
-    <div class="gallery-sec-3 space overflow-hidden">
+    <!-- Page Header End -->
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-9">
-                    <div class="title-area  text-center">
-                        <span class="sub-title">{{$setting->category_name}}</span>
-                        <h2 class="sec-title">{{$setting->description}}</h2>
-                    </div>
-                </div>
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h4 class="section-title">Projects Gallery</h4>
+                <h1 class="display-5 mb-4">We Are Creative Architecture View For Your Dream Home</h1>
             </div>
-            <div class="row gy-4 justify-content-center">
-                <!-- <div class="gallery-2-wrapper"> -->
-                @foreach($gallery as $id => $image)
-                    <div class="col-xl-4 col-md-6">
-                        <div class="gallery-card2 inner" data-bg-src="{{ asset($image) }}">
-                            <div class="gallery-img">
-                                <div class="gallery-content">
-                                    <a href="{{ asset($image) }}" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
-                                    <h2 class="box-title"><a href="#">Initial Consultation</a></h2>
-                                    <p class="box-text">Family Law</p>
-                                </div>
-                            </div>
+            <div class="row g-0 team-items">
+                 @foreach($gallery as $id => $image)
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item position-relative">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{{ asset($image) }}" alt="">
+                            
+                        </div>
+                        <div class="bg-light text-center p-4">
+                            <h3 class="mt-2">Architect Name</h3>
+                            <span class="text-primary">Designation</span>
                         </div>
                     </div>
+                </div>
                 @endforeach
-                <!-- </div> -->
             </div>
         </div>
     </div>
+    <!-- Team End -->
 @endsection

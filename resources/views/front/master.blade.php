@@ -81,18 +81,25 @@
                 <a href="{{route('about')}}" class="nav-item nav-link">About</a>
                 <a href="{{route('service')}}" class="nav-item nav-link">Services</a>
                 <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Projects</a>
+                    <div class="dropdown-menu border-0 m-0">
+                        <a href="{{route('gallery')}}" class="dropdown-item">Ongoing Projects</a>
+                        <a href="project.html" class="dropdown-item">Upcoming Projects</a>
+                        <a href="project.html" class="dropdown-item">Completed Projects</a>
+                    </div>
+                </div>
+                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu border-0 m-0">
-                        <a href="feature.html" class="dropdown-item">Our Features</a>
-                        <a href="project.html" class="dropdown-item">Our Projects</a>
+                        <a href="{{route('gallery')}}" class="dropdown-item">Gallery</a>
                         <a href="{{route('teams')}}" class="dropdown-item">Support Teams</a>
                         <a href="{{route('gallery')}}" class="dropdown-item">Gallery</a>
                         <a href="{{route('client')}}" class="dropdown-item">Testimonial</a>
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+ 
             </div>
-            <a href="" class="btn btn-primary py-2 px-4 d-none d-lg-block">Appointment</a>
+            <a href="{{route('contact')}}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Contact Us</a>
         </div>
     </nav>
     <!-- Navbar End -->

@@ -24,7 +24,7 @@ class SliderController extends Controller
 
         // Create an Intervention Image instance
         $img = \Intervention\Image\Facades\Image::make($image->getRealPath());
-        $img->resize(499, 565);
+        $img->resize(1920, 880);
         $img->save($imageUrl);
         return $imageUrl;
     }
@@ -37,8 +37,7 @@ class SliderController extends Controller
         $slider = new Slider();
         $slider->title = $request->title;
         $slider->s_title = $request->s_title;
-        $slider->number = $request->number;
-        $slider->client = $request->client;
+        $slider->link = $request->link;
         if ($request->status)
         {
             $slider->status = $request->status;
@@ -77,8 +76,7 @@ class SliderController extends Controller
         }
         $slider->title = $request->title;
         $slider->s_title = $request->s_title;
-        $slider->number = $request->number;
-        $slider->client = $request->client;
+        $slider->link = $request->link;
         if ($request->status)
         {
             $slider->status = $request->status;

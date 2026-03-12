@@ -53,20 +53,12 @@
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Client Number</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Link</label>
                                     <div class="col-10">
-                                        <input type="number" class="form-control @error('number') is-invalid @enderror" name="number" id="inputEmail3" placeholder="Number"/>
-                                        @error('number')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Client</label>
-                                    <div class="col-10">
-                                        <input type="client" class="form-control @error('client') is-invalid @enderror" name="client" id="inputEmail3" placeholder="client"/>
-                                        @error('client')
+                                        <input type="text" class="form-control @error('link') is-invalid @enderror" name="link" id="inputEmail3" placeholder="link"/>
+                                        @error('link')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
