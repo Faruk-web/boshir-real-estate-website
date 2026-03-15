@@ -36,6 +36,12 @@
                             <form action="{{route('business.update', ['id' => $privacy->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
+                                    <label for="inputEmail34" class="col-2 col-form-label">Title </label>
+                                    <div class="col-10">
+                                        <input type="text" value="{{$privacy->title}}" class="form-control @error('title') is-invalid @enderror" name="title" id="inputEmail34" placeholder="title"/>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Name</label>
                                     <div class="col-10">
                                         <input type="text" value="{{$privacy->name}}" class="form-control @error('name') is-invalid @enderror" name="name" id="inputEmail3" placeholder="name"/>
@@ -72,55 +78,6 @@
                                         @error('image')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-2 col-form-label">Case </label>
-                                    <div class="col-10">
-                                        <input type="text" value="{{$privacy->issue}}" class="form-control @error('issue') is-invalid @enderror" name="issue" id="inputEmail34" placeholder="issue"/>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-2 col-form-label">Case No</label>
-                                    <div class="col-10">
-                                        <input type="number" value="{{$privacy->issue_no}}" class="form-control @error('issue_no') is-invalid @enderror" name="issue_no" id="inputEmail34" placeholder="issue no"/>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-2 col-form-label">Advocate</label>
-                                    <div class="col-10">
-                                        <input type="text" value="{{$privacy->advocate}}" class="form-control @error('advocate') is-invalid @enderror" name="advocate" id="inputEmail34" placeholder="advocate"/>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-2 col-form-label">Advocate No</label>
-                                    <div class="col-10">
-                                        <input type="number" value="{{$privacy->advocate_no}}" class="form-control @error('advocate_no') is-invalid @enderror" name="advocate_no" id="inputEmail34" placeholder="advocate_no"/>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-2 col-form-label">Client</label>
-                                    <div class="col-10">
-                                        <input type="text" value="{{$privacy->client}}" class="form-control @error('client') is-invalid @enderror" name="client" id="inputEmail34" placeholder="client"/>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-2 col-form-label">Client No</label>
-                                    <div class="col-10">
-                                        <input type="number" value="{{$privacy->client_no}}" class="form-control @error('client_no') is-invalid @enderror" name="client_no" id="inputEmail34" placeholder="client_no"/>
-                                    </div>
-                                </div>
-                                
-                                <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-2 col-form-label">Award</label>
-                                    <div class="col-10">
-                                        <input type="text" value="{{$privacy->award}}" class="form-control @error('award') is-invalid @enderror" name="award" id="inputEmail34" placeholder="award"/>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-2 col-form-label">Award No</label>
-                                    <div class="col-10">
-                                        <input type="number" value="{{$privacy->award_no}}" class="form-control @error('award_no') is-invalid @enderror" name="award_no" id="inputEmail34" placeholder="award_no"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

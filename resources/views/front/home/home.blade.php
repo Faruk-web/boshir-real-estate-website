@@ -77,10 +77,10 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h4 class="section-title">Why Choose Us!</h4>
-                    <h1 class="display-5 mb-4">Why You Should Trust Us? Learn More About Us!</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <div class="row g-4">
+                    <h4 class="section-title">{{$business->title}}</h4>
+                    <h1 class="display-5 mb-4">{{$business->name}}</h1>
+                    <p class="mb-4">{!!$business->details!!}</p>
+                    <!-- <div class="row g-4">
                         <div class="col-12">
                             <div class="d-flex align-items-start">
                                 <img class="flex-shrink-0" src="{{ asset('front') }}/img/icons/icon-2.png" alt="Icon">
@@ -108,12 +108,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="feature-img">
-                        <img class="img-fluid" src="{{ asset('front') }}/img/about-2.jpg" alt="">
-                        <img class="img-fluid" src="{{ asset('front') }}/img/about-1.jpg" alt="">
+                        <img class="img-fluid" src="{{ asset($business->image) }}" alt="">
+                        <img class="img-fluid" src="{{ asset($business->s_image) }}" alt="">
                     </div>
                 </div>
             </div>
@@ -128,72 +128,19 @@
                 <h1 class="display-5 mb-4">We Focused On Modern Architecture And Interior Design</h1>
             </div>
             <div class="row g-4">
+                @foreach($service as $item)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('front') }}/img/service-1.jpg" alt="">
+                        <img class="bg-img" src="{{ asset($item->main_image) }}" alt="">
                         <div class="service-text p-5">
-                            <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-5.png" alt="Icon">
-                            <h3 class="mb-3">Architecture</h3>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <img class="mb-4" src="{{ asset($item->image) }}" alt="Icon">
+                            <h3 class="mb-3">{{$item->name}}</h3>
+                            <p class="mb-4">{!!$item->privacy!!}</p>
+                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('front') }}/img/service-2.jpg" alt="">
-                        <div class="service-text p-5">
-                            <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-6.png" alt="Icon">
-                            <h3 class="mb-3">3D Animation</h3>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('front') }}/img/service-3.jpg" alt="">
-                        <div class="service-text p-5">
-                            <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-7.png" alt="Icon">
-                            <h3 class="mb-3">House Planning</h3>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('front') }}/img/service-4.jpg" alt="">
-                        <div class="service-text p-5">
-                            <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-8.png" alt="Icon">
-                            <h3 class="mb-3">Interior Design</h3>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('front') }}/img/service-5.jpg" alt="">
-                        <div class="service-text p-5">
-                            <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-9.png" alt="Icon">
-                            <h3 class="mb-3">Renovation</h3>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item d-flex position-relative text-center h-100">
-                        <img class="bg-img" src="{{ asset('front') }}/img/service-6.jpg" alt="">
-                        <div class="service-text p-5">
-                            <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-10.png" alt="Icon">
-                            <h3 class="mb-3">Construction</h3>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
-                        </div>
-                    </div>
-                </div>
+               @endforeach
             </div>
         </div>
     </div>
@@ -208,94 +155,44 @@
             <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="col-lg-4">
                     <div class="nav nav-pills d-flex justify-content-between w-100 h-100 me-4">
-                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 active" data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button">
-                            <h3 class="m-0">01. Modern Complex</h3>
+
+                        @foreach($projects as $key => $project)
+
+                        <button
+                        class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 {{ $key==0 ? 'active' : '' }}"
+                        data-bs-toggle="pill"
+                        data-bs-target="#tab{{ $project->id }}"
+                        type="button">
+
+                        <h3 class="m-0">
+                        {{ $loop->iteration }}. {{ $project->name }}
+                        </h3>
+
                         </button>
-                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button">
-                            <h3 class="m-0">02. Royal Hotel</h3>
-                        </button>
-                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button">
-                            <h3 class="m-0">03. Mexwel Buiding</h3>
-                        </button>
-                        <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
-                            <h3 class="m-0">04. Shopping Complex</h3>
-                        </button>
+
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="tab-content w-100">
-                        <div class="tab-pane fade show active" id="tab-pane-1">
+                        @foreach($projects as $key => $project)
+                        <div class="tab-pane fade {{ $key==0 ? 'show active' : '' }}" id="tab{{ $project->id }}">
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('front') }}/img/project-1.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset($project->image) }}"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h1 class="mb-3">25 Years Of Experience In Architecture Industry</h1>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Design Approach</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Innovative Solutions</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Project Management</p>
+                                    <h1 class="mb-3">{{ $project->title }}</h1>
+                                   <p class="mb-4">{!! $project->privacy !!}</p>
+
                                     <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="tab-pane-2">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('front') }}/img/project-2.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h1 class="mb-3">25 Years Of Experience In Architecture Industry</h1>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Design Approach</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Innovative Solutions</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Project Management</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="tab-pane-3">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('front') }}/img/project-3.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h1 class="mb-3">25 Years Of Experience In Architecture Industry</h1>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Design Approach</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Innovative Solutions</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Project Management</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="tab-pane-4">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('front') }}/img/project-4.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h1 class="mb-3">25 Years Of Experience In Architecture Industry</h1>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Design Approach</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Innovative Solutions</p>
-                                    <p><i class="fa fa-check text-primary me-3"></i>Project Management</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More</a>
-                                </div>
-                            </div>
-                        </div>
+                    @endforeach
                     </div>
                 </div>
             </div>
@@ -333,8 +230,9 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+          </div>
         </div>
-    </div>
     <!-- Team End -->
 
 

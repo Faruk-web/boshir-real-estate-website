@@ -213,7 +213,7 @@ public function businessupdate(Request $request, $id)
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/business/' . $name_gen_blog;
 
-        Image::make($image)->resize(372, 290)->save(public_path($save_url_blog));
+        Image::make($image)->resize(500, 700)->save(public_path($save_url_blog));
         $privacy->image = $save_url_blog;
     }
 
@@ -229,21 +229,13 @@ public function businessupdate(Request $request, $id)
       $image = $request->file('s_image');
       $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
       $save_url_blog = 'upload/business/' . $name_gen_blog;
-      Image::make($image)->resize(372, 290)->save(public_path($save_url_blog));
+      Image::make($image)->resize(500, 700)->save(public_path($save_url_blog));
       $privacy->s_image = $save_url_blog;
   }
     // Update other fields
       $privacy->name = $request->name;
       $privacy->details = $request->details;
-      $privacy->issue = $request->issue;
-      $privacy->issue_no = $request->issue_no;
-      $privacy->advocate = $request->advocate;
-      $privacy->advocate_no = $request->advocate_no;
-      $privacy->client = $request->client;
-      $privacy->client_no = $request->client_no;
-      $privacy->award = $request->award;
-      $privacy->award_no = $request->award_no;
-
+      $privacy->title = $request->title;
     $privacy->save();
 
     Alert::success('business updated successfully', '');

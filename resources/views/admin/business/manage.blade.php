@@ -36,11 +36,10 @@
                         <thead>
                         <tr>
                             <th>S.N</th>
+                            <th>Title</th>
                             <th>Name</th>
                             <th>Primary Image</th>
                             <th>Secoundery Image</th>
-                            <th>Case</th>
-                            <th>Client</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -48,11 +47,10 @@
                         @foreach($privacy as $data)
                         <tr>
                             <td>{{$loop->iteration}}</td>
+                            <td>{{$data->title}}</td>
                             <td>{{$data->name}}</td>
                             <td><img src="{{asset($data->image)}}" alt="" style="height: 50px"></td>
                             <td><img src="{{asset($data->s_image)}}" alt="" style="height: 50px"></td>
-                            <td>{{$data->issue}}</td>
-                            <td>{{$data->client}}</td>
                             <td>
                                 <a href="{{route('business.edit', ['id' => $data->id])}}" class="btn btn-success btn-sm" title="Edit">
                                     <i class="ri-edit-box-fill"></i>

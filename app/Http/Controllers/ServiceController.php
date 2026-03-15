@@ -29,7 +29,7 @@ class ServiceController extends Controller
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/service/' . $name_gen_blog;
 
-        Image::make($image)->resize(45, 45)->save(public_path($save_url_blog));
+        Image::make($image)->resize(64, 64)->save(public_path($save_url_blog));
         $privacy->image = $save_url_blog;
     }
     if ($request->hasFile('main_image')) {
@@ -37,7 +37,7 @@ class ServiceController extends Controller
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/service/' . $name_gen_blog;
 
-        Image::make($image)->resize(856, 500)->save(public_path($save_url_blog));
+        Image::make($image)->resize(410, 370)->save(public_path($save_url_blog));
         $privacy->main_image = $save_url_blog;
     }
 
@@ -92,7 +92,7 @@ class ServiceController extends Controller
             file_put_contents(public_path($save_path), $cleanSvg);
         } else {
             // Handle normal images (JPEG, PNG, etc.)
-            Image::make($image)->resize(45, 45)->save(public_path($save_path));
+            Image::make($image)->resize(64, 64)->save(public_path($save_path));
         }
     
         $privacy->image = $save_path;
@@ -109,7 +109,7 @@ class ServiceController extends Controller
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/service/' . $name_gen_blog;
 
-        Image::make($image)->resize(856, 500)->save(public_path($save_url_blog));
+        Image::make($image)->resize(410, 370)->save(public_path($save_url_blog));
         $privacy->main_image = $save_url_blog;
     }
 
