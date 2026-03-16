@@ -82,16 +82,26 @@ class HomeController extends Controller
          $team  = Privacy::select('id', 'name', 'title', 'image')->where('status',2)->limit(4)->get();
         return view('front.about.about',compact('about','business','team'));
     }
-    public function practice()
+    public function ongoing()
     {
         $prectice = Practice::select('id', 'name','title','image')->get();
-        return view('front.Practice.practice',compact('prectice'));
+        return view('front.project.ongoing',compact('prectice'));
+    }
+     public function upcoming()
+    {
+        $prectice = Practice::select('id', 'name','title','image')->get();
+        return view('front.project.upcoming',compact('prectice'));
+    }
+     public function completed()
+    {
+        $prectice = Practice::select('id', 'name','title','image')->get();
+        return view('front.project.completed',compact('prectice'));
     }
     public function practicedeatils($id)
     {
         $team = Practice::select('id', 'name','image')->limit(6)->get();
         $teams = Practice::select('id', 'name','title', 'image','privacy')->find($id);
-        return view('front.Practice.practice_deatils',compact('team','teams'));
+        return view('front.project.project_deatils',compact('team','teams'));
     }
     
     public function client()

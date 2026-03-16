@@ -36,7 +36,7 @@
                             <form action="{{route('practice.update', ['id' => $privacy->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Name</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Project Name</label>
                                     <div class="col-10">
                                         <input type="text" value="{{$privacy->name}}" class="form-control @error('name') is-invalid @enderror" name="name" id="inputEmail3" placeholder="name"/>
                                         @error('title')
@@ -51,6 +51,17 @@
                                         @error('title')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="projectStatus" class="col-2 col-form-label">Project Status</label>
+                                    <div class="col-10">
+                                        <select class="form-control" name="status" id="projectStatus">
+                                            <option value="">-- Select Status --</option>
+                                            <option value="ongoing" {{ isset($privacy) && $privacy->status == 'ongoing' ? 'selected' : '' }}>Ongoing Project</option>
+                                            <option value="upcoming" {{ isset($privacy) && $privacy->status == 'upcoming' ? 'selected' : '' }}>Upcoming Project</option>
+                                            <option value="completed" {{ isset($privacy) && $privacy->status == 'completed' ? 'selected' : '' }}>Completed Project</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -70,13 +81,6 @@
                                         @error('privacy')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">status Practice</label>
-                                    <div class="col-10">
-                                        <input type="checkbox" id="switch{{$privacy->id}}" class="form-control" value="1" @if($privacy->status == 1) checked @endif name="status" data-switch="bool"/>
-                                        <label for="switch{{$privacy->id}}" data-on-label="yes" data-off-label="no"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

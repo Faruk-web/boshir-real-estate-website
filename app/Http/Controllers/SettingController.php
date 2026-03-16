@@ -95,7 +95,7 @@ class SettingController extends Controller
               $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
               $save_url_blog = 'upload/setting/' . $name_gen_blog;
       
-              Image::make($image)->resize(200, 60)->save(public_path($save_url_blog));
+              Image::make($image)->resize(76, 76)->save(public_path($save_url_blog));
               $privacy->logo = $save_url_blog;
           }
 
@@ -120,7 +120,7 @@ class SettingController extends Controller
                 file_put_contents(public_path($save_path), file_get_contents($image));
             } else {
                 // Resize and save other image formats
-                Image::make($image)->resize(80, 90)->save(public_path($save_path));
+                Image::make($image)->resize(64, 64)->save(public_path($save_path));
             }
         
             $privacy->f_logo = $save_path;

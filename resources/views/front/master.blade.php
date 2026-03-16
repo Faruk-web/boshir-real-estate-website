@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ @php
+     $setting = App\Models\Setting::find(1);
+@endphp
 <head>
     <meta charset="utf-8">
-    <title>Arkitektur - Architecture HTML Template</title>
+    <title>{{$setting->name}}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -46,14 +48,13 @@
         <div class="row gx-0 d-none d-lg-flex">
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-3">
-                    <a class="text-body px-2" href="tel:+0123456789"><i class="fa fa-phone-alt text-primary me-2"></i>+012 345 6789</a>
-                    <a class="text-body px-2" href="mailto:info@example.com"><i class="fa fa-envelope-open text-primary me-2"></i>info@example.com</a>
+                    <a class="text-body px-2" href="tel:{{$setting->p_phone}}"><i class="fa fa-phone-alt text-primary me-2"></i>{{$setting->p_phone}}</a>
+                    <a class="text-body px-2" href="mailto:{{$setting->p_mail}}"><i class="fa fa-envelope-open text-primary me-2"></i>{{$setting->p_mail}}</a>
                 </div>
             </div>
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-2">
-                    <a class="text-body px-2" href="">Terms</a>
-                    <a class="text-body px-2" href="">Privacy</a>
+                    <a class="text-body px-2" href="">Privacy & Policy</a>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a class="btn btn-sm-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -70,7 +71,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
         <a href="{{route('home')}}" class="navbar-brand ms-4 ms-lg-0">
-            <h1 class="text-primary m-0"><img class="me-3" src="{{ asset('front') }}/img/icons/icon-1.png" alt="Icon">Arkitektur</h1>
+            <h1 class="text-primary m-0"><img class="me-3" src="{{ asset($setting->logo) }}" alt="Icon">Imperial Estate</h1>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -83,9 +84,9 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Projects</a>
                     <div class="dropdown-menu border-0 m-0">
-                        <a href="{{route('gallery')}}" class="dropdown-item">Ongoing Projects</a>
-                        <a href="project.html" class="dropdown-item">Upcoming Projects</a>
-                        <a href="project.html" class="dropdown-item">Completed Projects</a>
+                        <a href="{{route('ongoing')}}" class="dropdown-item">Ongoing Projects</a>
+                        <a href="{{route('upcoming')}}" class="dropdown-item">Upcoming Projects</a>
+                        <a href="{{route('completed')}}" class="dropdown-item">Completed Projects</a>
                     </div>
                 </div>
                  <div class="nav-item dropdown">
@@ -93,8 +94,8 @@
                     <div class="dropdown-menu border-0 m-0">
                         <a href="{{route('gallery')}}" class="dropdown-item">Gallery</a>
                         <a href="{{route('teams')}}" class="dropdown-item">Support Teams</a>
-                        <a href="{{route('gallery')}}" class="dropdown-item">Gallery</a>
                         <a href="{{route('client')}}" class="dropdown-item">Testimonial</a>
+                        <a href="{{route('gallery')}}" class="dropdown-item">Privacy & Policy</a>
                     </div>
                 </div>
  
@@ -113,9 +114,9 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">Address</h3>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>{{$setting->p_phone}}</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>{{$setting->s_mail}}</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>{{$setting->location}}</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -124,24 +125,24 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h3 class="text-light mb-4">Services</h3>
-                    <a class="btn btn-link" href="">Architecture</a>
-                    <a class="btn btn-link" href="">3D Animation</a>
-                    <a class="btn btn-link" href="">House Planning</a>
-                    <a class="btn btn-link" href="">Interior Design</a>
-                    <a class="btn btn-link" href="">Construction</a>
+                    <h3 class="text-light mb-4">Project Status</h3>
+                    <a class="btn btn-link" href="{{route('ongoing')}}">Ongoing Projects</a>
+                    <a class="btn btn-link" href="{{route('upcoming')}}">Upcoming Projects</a>
+                    <a class="btn btn-link" href="{{route('completed')}}">Completed Projects</a>
+                    <a class="btn btn-link" href="{{route('gallery')}}">Gallery</a>
+                    <a class="btn btn-link" href="{{route('home')}}">Home</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">Quick Links</h3>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <a class="btn btn-link" href="{{route('about')}}">About Us</a>
+                    <a class="btn btn-link" href="{{route('service')}}">Our Services</a>
+                    <a class="btn btn-link" href="{{route('contact')}}">Contact Us</a>
+                    <a class="btn btn-link" href="{{route('teams')}}">Support Teams</a>
+                    <a class="btn btn-link" href="{{route('gallery')}}">Privacy & Policy</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">Newsletter</h3>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <p>{!! $setting->privacy !!}</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
@@ -153,12 +154,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+                        &copy; <a href="{{route('home')}}">Imperial Estate</a>, All Right Reserved.
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
-                        <br> Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                        <br> Distributed By: <a class="border-bottom" href="{{route('teams')}}" target="_blank">Imperial Estate Teams</a>
                     </div>
                 </div>
             </div>

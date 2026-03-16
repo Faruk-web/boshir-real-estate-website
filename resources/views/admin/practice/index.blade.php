@@ -36,20 +36,31 @@
                             <form action="{{route('practice.new')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label"> Name</label>
-                                    <div class="col-9">
+                                    <label for="inputEmail34" class="col-2 col-form-label">Project Name</label>
+                                    <div class="col-10">
                                         <input type="text" class="form-control" name="name" id="inputEmail34" placeholder="name"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Designation</label>
-                                    <div class="col-9">
+                                    <label for="inputEmail34" class="col-2 col-form-label">Designation</label>
+                                    <div class="col-10">
                                         <input type="text" class="form-control" name="title" id="inputEmail34" placeholder="designation"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Image size: 394 X 341</label>
-                                    <div class="col-9">
+                                <label for="projectStatus" class="col-2 col-form-label">Project Status</label>
+                                <div class="col-10">
+                                    <select class="form-control" name="status" id="projectStatus">
+                                        <option value="">-- Select Status --</option>
+                                        <option value="ongoing">Ongoing Project</option>
+                                        <option value="upcoming">Upcoming Project</option>
+                                        <option value="completed">Completed Project</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail34" class="col-2 col-form-label">Image size: 394 X 341</label>
+                                    <div class="col-10">
                                         <input type="file" class="form-control" name="image" multiple id="inputEmail34" placeholder="Property Image"/>
                                     </div>
                                 </div>
@@ -60,14 +71,6 @@
                                         @error('privacy')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Status Practice</label>
-                                    <div class="col-10">
-                                        <input type="checkbox" id="switch1" class="form-control" value="1" name="status" data-switch="bool"/>
-                                        <label for="switch1" data-on-label="yes" data-off-label="no"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

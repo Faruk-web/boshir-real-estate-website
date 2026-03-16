@@ -37,7 +37,7 @@ class PracticeController extends Controller
     $privacy->name = $request->name;
     $privacy->title = $request->title;
     $privacy->privacy = $request->privacy;
-    $privacy->status = $request->status == 1 ? 1 : 2;
+    $privacy->status = $request->status;
 
     $privacy->save();
 
@@ -90,7 +90,7 @@ class PracticeController extends Controller
         $privacy->name = $request->name;
         $privacy->title = $request->title;
         $privacy->privacy = $request->privacy;
-        $privacy->status = $request->status == 1 ? 1 : 2;
+        $privacy->status = $request->status;
     
         $privacy->save();
     
