@@ -52,7 +52,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/ongoing/project', [HomeController::class, 'ongoing'])->name('ongoing');
 Route::get('/upcoming/project', [HomeController::class, 'upcoming'])->name('upcoming');
 Route::get('/completed/project', [HomeController::class, 'completed'])->name('completed');
-Route::get('/practice/deatils/{id}', [HomeController::class, 'practicedeatils'])->name('practice.deatils');
+Route::get('/project/deatils/{id}', [HomeController::class, 'practicedeatils'])->name('practice.deatils');
 Route::get('/client', [HomeController::class, 'client'])->name('client');
 Route::get('/client/deatils/{id}', [HomeController::class, 'clientdeatils'])->name('client.deatils');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');

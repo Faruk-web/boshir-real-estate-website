@@ -291,16 +291,16 @@
                     <a data-bs-toggle="collapse" href="#sidebarPrivacy" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-lock"></i>
-                        <span> Advocate</span>
+                        <span> Latest Projects</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarPrivacy">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="{{route('privacyy.add')}}">New Advocate</a>
+                                <a href="{{route('privacyy.add')}}">Latest Projects</a>
                             </li>
                             <li>
-                                <a href="{{route('privacyy.manage')}}">Manage Advocate</a>
+                                <a href="{{route('privacyy.manage')}}">Manage Projects</a>
                             </li>
                         </ul>
                     </div>
@@ -363,16 +363,16 @@
                     <a data-bs-toggle="collapse" href="#sidebarpractice" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-lock"></i>
-                        <span> Practice</span>
+                        <span> Projects</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarpractice">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="{{route('practice.add')}}">Create Practice</a>
+                                <a href="{{route('practice.add')}}">Create Projects</a>
                             </li>
                             <li>
-                                <a href="{{route('practice.manage')}}">Manage Practice</a>
+                                <a href="{{route('practice.manage')}}">Manage Projects</a>
                             </li>
                         </ul>
                     </div>

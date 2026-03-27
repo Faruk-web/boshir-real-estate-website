@@ -40,8 +40,8 @@
                         <div class="service-text p-5"style="background:#d5d5d5!important">
                             <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-5.png" alt="Icon">
                             <h3 class="mb-3">Ongoing Projects</h3>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <p class="mb-4">Currently progressing with excellence and precision, delivering quality at every stage of development.</p>
+                            <a class="btn" href="{{route('ongoing')}}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
                 </div>
@@ -51,8 +51,8 @@
                         <div class="service-text p-5">
                             <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-5.png" alt="Icon">
                             <h3 class="mb-3">Upcoming Projects</h3>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <p class="mb-4">An upcoming project designed with modern architecture and premium features, coming soon to redefine your lifestyle.</p>
+                            <a class="btn" href="{{route('upcoming')}}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
                 </div>
@@ -62,8 +62,8 @@
                         <div class="service-text p-5">
                             <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-5.png" alt="Icon">
                             <h3 class="mb-3">Completed Projects</h3>
-                            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                            <a class="btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <p class="mb-4">Delivered with precision and care, our completed project reflects superior standards and lasting value.</p>
+                            <a class="btn" href="{{route('completed')}}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
                 </div>

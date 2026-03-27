@@ -31,8 +31,8 @@
                         <div class="fact-icon">
                             <img src="{{ asset('front') }}/img/icons/icon-2.png" alt="Icon">
                         </div>
-                        <h3 class="mb-3">Ongoing Projects</h3>
-                        <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <a class="" href="{{route('ongoing')}}"><h3 class="mb-3">Ongoing Projects</h3></a>
+                        <p class="mb-0">Currently progressing with excellence and precision, delivering quality at every stage of development.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -40,8 +40,8 @@
                         <div class="fact-icon">
                             <img src="{{ asset('front') }}/img/icons/icon-3.png" alt="Icon">
                         </div>
-                        <h3 class="mb-3">Upcoming Projects</h3>
-                        <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <a class="" href="{{route('upcoming')}}"><h3 class="mb-3">Upcoming Projects</h3></a>
+                        <p class="mb-0">An upcoming project designed with modern architecture and premium features, coming soon to redefine your lifestyle.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -49,8 +49,8 @@
                         <div class="fact-icon">
                             <img src="{{ asset('front') }}/img/icons/icon-4.png" alt="Icon">
                         </div>
-                        <h3 class="mb-3">Completed Projects</h3>
-                        <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
+                        <a class="" href="{{route('completed')}}"><h3 class="mb-3">Completed Projects</h3></a>
+                        <p class="mb-0">Delivered with precision and care, our completed project reflects superior standards and lasting value.</p>
                     </div>
                 </div>
             </div>
