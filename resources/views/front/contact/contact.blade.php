@@ -4,20 +4,20 @@
 @endsection
 @section('body')
      @php
-     $setting = App\Models\Setting::find(1);
+     $setting = App\Models\Setting::select('location', 'p_phone', 'p_mail','privacy')->find(1);
      $settings = App\Models\Category::find(133);
+     $contactpage = App\Models\Category::find(134);
       @endphp
 
 
  <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            <h1 class="display-1 text-white animated slideInDown">Contact Us {{$settings->category_name}}</h1>
+            <h1 class="display-1 text-white animated slideInDown">{{$settings->category_name}}</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb text-uppercase mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Contact Us {{$settings->description}}</li>
+                    <li class="breadcrumb-item"><a class="text-white" href="{{route('home')}}">Home</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">{{$settings->description}}</li>
                 </ol>
             </nav>
         </div>
@@ -29,8 +29,8 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">Contact Us</h4>
-                <h1 class="display-5 mb-4">If You Have Any Query, Please Feel Free Contact Us</h1>
+                <h4 class="section-title">{{$contactpage->category_name}}</h4>
+                <h1 class="display-5 mb-4">{{$contactpage->description}}</h1>
             </div>
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -41,7 +41,7 @@
                             </div>
                             <div class="ms-4">
                                 <p class="mb-2">Address</p>
-                                <h3 class="mb-0">123 Street, New York, USA</h3>
+                                <h3 class="mb-0">{{$setting->location}}</h3>
                             </div>
                         </div>
                         <div class="bg-light d-flex align-items-center w-100 p-4 mb-4">
@@ -50,7 +50,7 @@
                             </div>
                             <div class="ms-4">
                                 <p class="mb-2">Call Us Now</p>
-                                <h3 class="mb-0">+012 345 6789</h3>
+                                <h3 class="mb-0">{{$setting->p_phone}}</h3>
                             </div>
                         </div>
                         <div class="bg-light d-flex align-items-center w-100 p-4">
@@ -59,13 +59,13 @@
                             </div>
                             <div class="ms-4">
                                 <p class="mb-2">Mail Us Now</p>
-                                <h3 class="mb-0">info@example.com</h3>
+                                <h3 class="mb-0">{{$setting->p_mail}}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                    <p class="mb-4">{!!$setting->privacy!!}</p>
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">

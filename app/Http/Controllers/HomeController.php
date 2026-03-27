@@ -36,14 +36,12 @@ class HomeController extends Controller
         $team  = Privacy::select('id', 'name', 'title', 'image')->where('status',2)->limit(4)->get();
         $business=Business::find(1);
         $peace=Peace::find(1);
-        $logo=Logo::select('id','multi_logo')->get();
-        $client=Client::select('id','name','title','privacy','image')->get();
         $service = Board::select('id', 'name', 'image', 'main_image','privacy')->orderBy('id', 'DESC')->get()->map(function ($item) {
             $item->privacy = Str::limit($item->privacy, 100);
             return $item;
         });
 
-        return view('front.home.home',compact('Slider','team','projects','prectice','blog','business','peace','logo','client','service'));
+        return view('front.home.home',compact('Slider','team','projects','prectice','blog','business','peace','service'));
     }
     public function service()
     {
@@ -84,17 +82,17 @@ class HomeController extends Controller
     }
     public function ongoing()
     {
-        $prectice = Practice::select('id', 'name','title','image')->get();
+        $prectice = Practice::select('id', 'name','title','image')->where('status','ongoing')->get();
         return view('front.project.ongoing',compact('prectice'));
     }
      public function upcoming()
     {
-        $prectice = Practice::select('id', 'name','title','image')->get();
+        $prectice = Practice::select('id', 'name','title','image')->where('status','upcoming')->get();
         return view('front.project.upcoming',compact('prectice'));
     }
      public function completed()
     {
-        $prectice = Practice::select('id', 'name','title','image')->get();
+        $prectice = Practice::select('id', 'name','title','image')->where('status','completed')->get();
         return view('front.project.completed',compact('prectice'));
     }
     public function practicedeatils($id)
@@ -106,7 +104,7 @@ class HomeController extends Controller
     
     public function client()
     {
-        $client = Client::select('id', 'name', 'title', 'image')->get();
+        $client=Client::select('id','name','title','privacy','image')->get();
         return view('front.client.client',compact('client'));
     }
     public function clientdeatils($id)
@@ -130,7 +128,7 @@ class HomeController extends Controller
     
     public function gallery()
     {
-        $gallery = Multi_image::pluck('multi_image', 'id'); // Returns an associative array
+         $gallery = Multi_image::select('id', 'multi_image', 'link')->get();
         return view('front.gallery.gallery', compact('gallery'));
     }
     public function projects()

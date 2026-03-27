@@ -435,16 +435,16 @@
                     <a data-bs-toggle="collapse" href="#sidebarlogo" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-lock"></i>
-                        <span> Logo</span>
+                        <span> Privacy & Policy</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarlogo">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="{{route('logo.add')}}">Create Logo</a>
+                                <a href="{{route('logo.add')}}">Create Privacy & Policy</a>
                             </li>
                             <li>
-                                <a href="{{route('logo.manage')}}">Manage Logo</a>
+                                <a href="{{route('logo.manage')}}">Manage Privacy & Policy</a>
                             </li>
                         </ul>
                     </div>
@@ -489,27 +489,29 @@
                             <li>
                                 <a href="{{route('category.aboutpage')}}">About Page</a>
                             </li>
+                             <li>
+                                <a href="{{route('category.servicepage')}}">Service Page</a>
+                            </li>
                             <li>
-                                <a href="{{route('category.practicepage')}}">Practice Page</a>
+                                <a href="{{route('category.practicepage')}}">Projects Page</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.gallerypage')}}">Gallery Page</a>
                             </li>
                             <li>
                                 <a href="{{route('category.clientpage')}}">Client Page</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="{{route('category.advocatepage')}}">Advocate Page</a>
-                            </li>
-                            <li>
-                                <a href="{{route('category.servicepage')}}">Service Page</a>
-                            </li>
+                            </li> --}}
+                           
                             <li>
                                 <a href="{{route('category.teampage')}}">Support Team Page</a>
                             </li>
                             <li>
                                 <a href="{{route('category.blogpage')}}">Blog Page</a>
                             </li>
-                            <li>
-                                <a href="{{route('category.gallerypage')}}">Gallery Page</a>
-                            </li>
+                            
                             <li>
                                 <a href="{{route('category.contactpage')}}">Contact Page</a>
                             </li>

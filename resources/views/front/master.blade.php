@@ -95,6 +95,7 @@
                         <a href="{{route('gallery')}}" class="dropdown-item">Gallery</a>
                         <a href="{{route('teams')}}" class="dropdown-item">Support Teams</a>
                         <a href="{{route('client')}}" class="dropdown-item">Testimonial</a>
+                         <a href="{{route('blog')}}" class="dropdown-item">Events</a>
                         <a href="{{route('gallery')}}" class="dropdown-item">Privacy & Policy</a>
                     </div>
                 </div>

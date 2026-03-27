@@ -59,7 +59,7 @@
                                   </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-2 col-form-label">Image size: 394 X 341</label>
+                                    <label for="inputEmail34" class="col-2 col-form-label">Image size: 400 X 425</label>
                                     <div class="col-10">
                                         <input type="file" class="form-control" name="image" multiple id="inputEmail34" placeholder="Property Image"/>
                                     </div>

@@ -42,10 +42,16 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Multiimage size: 618 X 355</label>
+                                    <label for="inputEmail34" class="col-3 col-form-label">Multiimage size: 300 X 250</label>
                                     <div class="col-9">
                                         <div class="controls">
                                             <input type="file" name="multi_image[]"  multiple="" id="MultiImg" class="form-control"  > </div>
+                                    </div>
+                                </div>
+                                 <div class="row mb-3">
+                                    <label for="inputEmail34" class="col-3 col-form-label"> Vedio Link</label>
+                                    <div class="col-9">
+                                        <input type="text" class="form-control" name="link" id="inputEmail34" placeholder="link"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

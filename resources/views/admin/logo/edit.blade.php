@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Logo Update</h4>
+                <h4 class="page-title">Privacy Update</h4>
             </div>
         </div>
     </div>
@@ -44,16 +44,15 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label class="col-2 col-form-label">Logo size: 95 X 90</label>
-                                <div class="col-10">
-                                    <input type="file" name="multi_logo" class="form-control @error('multi_logo') is-invalid @enderror" id="exampleInputPassword1">
-                                    <img src="{{ asset($privacy->multi_logo) }}" alt="" style="height: 100px">
-                                    @error('multi_logo')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
+                    <div class="row mb-3">
+    <label for="summernote" class="col-2 col-form-label">Details</label>
+    <div class="col-10">
+        <textarea id="summernote" name="privacy" class="form-control @error('privacy') is-invalid @enderror">{{ old('privacy', $privacy->privacy) }}</textarea>
+        @error('privacy')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+</div>
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-2 col-form-label"></label>
                                 <div class="col-10">
@@ -71,7 +70,12 @@
         <!-- end col -->
     </div>
     <!-- end row -->
-
+ <script>
+        $('#summernote').summernote({
+            tabsize: 2,
+            height: 300
+        });
+    </script>
 @endsection
 
 

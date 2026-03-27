@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-2 col-form-label">Image size: 394 X 341</label>
+                                    <label class="col-2 col-form-label">Image size: 400 X 425</label>
                                     <div class="col-10">
                                         <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="exampleInputPassword1">
                                         <img src="{{asset($privacy->image)}}" alt="" style="height: 100px">

@@ -51,11 +51,7 @@
                             <td>{{$data->title}}</td>
                             <td><img src="{{asset($data->image)}}" alt="" style="height: 50px"></td>
                             <td>
-                                @if($data->status == 1)
-                                    <span class="badge bg-success">practice</span>
-                                @else
-                                    <span class="badge bg-info">not practice</span>
-                                @endif
+                               {{$data->status}}
                             </td>
                             <td>
                                 <a href="{{route('practice.edit', ['id' => $data->id])}}" class="btn btn-success btn-sm" title="Edit">

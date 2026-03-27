@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Logo extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'multi_logo'];
+    protected $fillable = ['name', 'privacy'];
 }

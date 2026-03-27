@@ -45,11 +45,20 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-2 col-form-label">Image size: 618 X 355</label>
+                                <label class="col-2 col-form-label">Image size: 300 X 250</label>
                                 <div class="col-10">
                                     <input type="file" name="multi_image" class="form-control @error('multi_image') is-invalid @enderror" id="exampleInputPassword1">
                                     <img src="{{ asset($privacy->multi_image) }}" alt="" style="height: 100px">
                                     @error('multi_image')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                             <div class="row mb-3">
+                                <label for="inputEmail3" class="col-2 col-form-label">Vedio Link </label>
+                                <div class="col-10">
+                                    <input type="text" value="{{ $privacy->link }}" class="form-control @error('link') is-invalid @enderror" name="link" id="inputEmail3" placeholder="link"/>
+                                    @error('link')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

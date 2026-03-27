@@ -4,8 +4,6 @@
     Home
 @endsection
 @section('body')
-
-
     <!-- Carousel Start -->
     <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="owl-carousel header-carousel position-relative">
@@ -29,7 +27,11 @@
     </div>
     <!-- Carousel End -->
 
-
+      @php
+        $ongoing = App\Models\Category::find(105);
+        $upcoming = App\Models\Category::find(106);
+        $compleat = App\Models\Category::find(107);
+      @endphp
     <!-- Facts Start -->
     <div class="container-xxl py-5">
         <div class="container pt-5">
@@ -37,10 +39,10 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item d-flex position-relative text-center h-100" >
                         <img class="bg-img" src="{{ asset('front') }}/img/service-1.jpg" alt="">
-                        <div class="service-text p-5"style="background:#d5d5d5!important">
+                        <div class="service-text p-5">
                             <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-5.png" alt="Icon">
-                            <h3 class="mb-3">Ongoing Projects</h3>
-                            <p class="mb-4">Currently progressing with excellence and precision, delivering quality at every stage of development.</p>
+                            <h3 class="mb-3">{{$ongoing->category_name}}</h3>
+                            <p class="mb-4">{{$ongoing->description}}</p>
                             <a class="btn" href="{{route('ongoing')}}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
@@ -50,8 +52,8 @@
                         <img class="bg-img" src="{{ asset('front') }}/img/service-1.jpg" alt="">
                         <div class="service-text p-5">
                             <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-5.png" alt="Icon">
-                            <h3 class="mb-3">Upcoming Projects</h3>
-                            <p class="mb-4">An upcoming project designed with modern architecture and premium features, coming soon to redefine your lifestyle.</p>
+                            <h3 class="mb-3">{{$upcoming->category_name}}</h3>
+                            <p class="mb-4">{{$upcoming->description}}</p>
                             <a class="btn" href="{{route('upcoming')}}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
@@ -61,8 +63,8 @@
                         <img class="bg-img" src="{{ asset('front') }}/img/service-1.jpg" alt="">
                         <div class="service-text p-5">
                             <img class="mb-4" src="{{ asset('front') }}/img/icons/icon-5.png" alt="Icon">
-                            <h3 class="mb-3">Completed Projects</h3>
-                            <p class="mb-4">Delivered with precision and care, our completed project reflects superior standards and lasting value.</p>
+                            <h3 class="mb-3">{{$compleat->category_name}}</h3>
+                            <p class="mb-4">{{$compleat->description}}</p>
                             <a class="btn" href="{{route('completed')}}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
@@ -80,35 +82,6 @@
                     <h4 class="section-title">{{$business->title}}</h4>
                     <h1 class="display-5 mb-4">{{$business->name}}</h1>
                     <p class="mb-4">{!!$business->details!!}</p>
-                    <!-- <div class="row g-4">
-                        <div class="col-12">
-                            <div class="d-flex align-items-start">
-                                <img class="flex-shrink-0" src="{{ asset('front') }}/img/icons/icon-2.png" alt="Icon">
-                                <div class="ms-4">
-                                    <h3>Design Approach</h3>
-                                    <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="d-flex align-items-start">
-                                <img class="flex-shrink-0" src="{{ asset('front') }}/img/icons/icon-3.png" alt="Icon">
-                                <div class="ms-4">
-                                    <h3>Innovative Solutions</h3>
-                                    <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="d-flex align-items-start">
-                                <img class="flex-shrink-0" src="{{ asset('front') }}/img/icons/icon-4.png" alt="Icon">
-                                <div class="ms-4">
-                                    <h3>Project Management</h3>
-                                    <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="feature-img">
@@ -120,12 +93,15 @@
         </div>
     </div>
     <!-- Feature End -->
+      @php
+        $servicehome = App\Models\Category::find(108);
+      @endphp
     <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">Our Services</h4>
-                <h1 class="display-5 mb-4">We Focused On Modern Architecture And Interior Design</h1>
+                <h4 class="section-title">{{$servicehome->category_name}}</h4>
+                <h1 class="display-5 mb-4">{{$servicehome->description}}</h1>
             </div>
             <div class="row g-4">
                 @foreach($service as $item)
@@ -145,12 +121,15 @@
         </div>
     </div>
     <!-- Service End -->
+     @php
+        $projecthome = App\Models\Category::find(109);
+      @endphp
     <!-- Project Start -->
     <div class="container-xxl project py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">Our Projects</h4>
-                <h1 class="display-5 mb-4">Visit Our Latest Projects And Our Innovative Works</h1>
+                <h4 class="section-title">{{$projecthome->category_name}}</h4>
+                <h1 class="display-5 mb-4">{{$projecthome->description}}</h1>
             </div>
             <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="col-lg-4">
@@ -200,13 +179,15 @@
     </div>
     <!-- Project End -->
 
-
+      @php
+        $teamhome = App\Models\Category::find(110);
+      @endphp
     <!-- Team Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">Team Members</h4>
-                <h1 class="display-5 mb-4">We Are Creative Architecture Team For Your Dream Home</h1>
+                <h4 class="section-title">{{$teamhome->category_name}}</h4>
+                <h1 class="display-5 mb-4">{{$teamhome->description}}</h1>
             </div>
             <div class="row g-0 team-items">
                 @foreach($team as $item)
@@ -234,16 +215,19 @@
           </div>
         </div>
     <!-- Team End -->
-
+      @php
+        $appointment = App\Models\Category::find(111);
+        $setting = App\Models\Setting::select('location', 'p_phone', 'p_mail')->find(1);
+      @endphp
 
     <!-- Appointment Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <h4 class="section-title">Appointment</h4>
-                    <h1 class="display-5 mb-4">Make An Appointment To Start Your Dream Project</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <h4 class="section-title">{{$appointment->category_name}}</h4>
+                    <h1 class="display-5 mb-4">{{$appointment->description}}</h1>
+                    <p class="mb-4">{{$setting->location}}</p>
                     <div class="row g-4">
                         <div class="col-12">
                             <div class="d-flex">
@@ -252,7 +236,7 @@
                                 </div>
                                 <div class="ms-4">
                                     <p class="mb-2">Call Us Now</p>
-                                    <h3 class="mb-0">+012 345 6789</h3>
+                                    <h3 class="mb-0">{{$setting->p_phone}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -263,7 +247,7 @@
                                 </div>
                                 <div class="ms-4">
                                     <p class="mb-2">Mail Us Now</p>
-                                    <h3 class="mb-0">info@example.com</h3>
+                                    <h3 class="mb-0">{{$setting->p_mail}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -315,24 +299,4 @@
     </div>
     <!-- Appointment End -->
 
-
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">Testimonial</h4>
-                <h1 class="display-5 mb-4">Thousands Of Customers Who Trust Us And Our Services</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                 @foreach($client as $item)
-                <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='{{ asset($item->image) }}' alt=''>">
-                    <p class="fs-5">{!! Str::limit($item->privacy, 150, '...') !!}</p>
-                    <h3>{{ $item->name }}</h3>
-                    <span class="text-primary">{{ $item->title }}</span>
-                </div>
-              @endforeach
-            </div>      
-        </div>
-    </div>
-    <!-- Testimonial End -->
 @endsection

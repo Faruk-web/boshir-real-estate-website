@@ -37,7 +37,7 @@
                         <tr>
                             <th>S.N</th>
                             <th>Name</th>
-                            <th>Logo</th>
+                            <th>privacy</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -46,7 +46,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$data->name}}</td>
-                            <td><img src="{{asset($data->multi_logo)}}" alt="" style="height: 50px"></td>
+                            <td>{!!$data->privacy!!}</td>
                             <td>
                                 <a href="{{route('logo.edit', ['id' => $data->id])}}" class="btn btn-success btn-sm" title="Edit">
                                     <i class="ri-edit-box-fill"></i>

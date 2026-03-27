@@ -10,18 +10,22 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            <h1 class="display-1 text-white animated slideInDown">Services {{$setting->category_name}}</h1>
+            <h1 class="display-1 text-white animated slideInDown">{{$setting->category_name}}</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb text-uppercase mb-0">
                     <li class="breadcrumb-item"><a class="text-white" href="{{route('home')}}">Home</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Services {{$setting->description}}</li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">{{$setting->description}}</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
 
-
+     @php
+        $ongoing = App\Models\Category::find(126);
+        $upcoming = App\Models\Category::find(160);
+        $compleat = App\Models\Category::find(161);
+      @endphp
     <!-- Facts Start -->
     <div class="container-xxl py-5">
         <div class="container pt-5">
@@ -31,8 +35,8 @@
                         <div class="fact-icon">
                             <img src="{{ asset('front') }}/img/icons/icon-2.png" alt="Icon">
                         </div>
-                        <a class="" href="{{route('ongoing')}}"><h3 class="mb-3">Ongoing Projects</h3></a>
-                        <p class="mb-0">Currently progressing with excellence and precision, delivering quality at every stage of development.</p>
+                        <a class="" href="{{route('ongoing')}}"><h3 class="mb-3">{{$ongoing->category_name}}</h3></a>
+                        <p class="mb-0">{{$ongoing->description}}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -40,8 +44,8 @@
                         <div class="fact-icon">
                             <img src="{{ asset('front') }}/img/icons/icon-3.png" alt="Icon">
                         </div>
-                        <a class="" href="{{route('upcoming')}}"><h3 class="mb-3">Upcoming Projects</h3></a>
-                        <p class="mb-0">An upcoming project designed with modern architecture and premium features, coming soon to redefine your lifestyle.</p>
+                        <a class="" href="{{route('upcoming')}}"><h3 class="mb-3">{{$upcoming->category_name}}</h3></a>
+                        <p class="mb-0">{{$upcoming->description}}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -49,22 +53,24 @@
                         <div class="fact-icon">
                             <img src="{{ asset('front') }}/img/icons/icon-4.png" alt="Icon">
                         </div>
-                        <a class="" href="{{route('completed')}}"><h3 class="mb-3">Completed Projects</h3></a>
-                        <p class="mb-0">Delivered with precision and care, our completed project reflects superior standards and lasting value.</p>
+                        <a class="" href="{{route('completed')}}"><h3 class="mb-3">{{$compleat->category_name}}</h3></a>
+                        <p class="mb-0">{{$compleat->description}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Facts End -->
-
+      @php
+        $servicepage = App\Models\Category::find(162);
+      @endphp
 
    <!-- Service Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">Our Services</h4>
-                <h1 class="display-5 mb-4">We Focused On Modern Architecture And Interior Design</h1>
+                <h4 class="section-title">{{$servicepage->category_name}}</h4>
+                <h1 class="display-5 mb-4">{{$servicepage->description}}</h1>
             </div>
             <div class="row g-4">
                 @foreach($service as $item)
@@ -85,13 +91,15 @@
     </div>
     <!-- Service End -->
 
-
+      @php
+        $Testimonial = App\Models\Category::find(163);
+      @endphp
       <!-- Testimonial Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">Testimonial</h4>
-                <h1 class="display-5 mb-4">Thousands Of Customers Who Trust Us And Our Services</h1>
+                <h4 class="section-title">{{ $Testimonial->category_name}}</h4>
+                <h1 class="display-5 mb-4">{{$Testimonial->description}}</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                  @foreach($client as $item)

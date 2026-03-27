@@ -46,7 +46,20 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$data->name}}</td>
-                            <td><img src="{{asset($data->multi_image)}}" alt="" style="height: 50px"></td>
+                             <td>
+                                @if(!empty($data->multi_image))
+                                    <img src="{{ asset($data->multi_image) }}" alt="" style="height: 50px; width: auto;">
+                                @elseif(!empty($data->link))
+                                    <iframe 
+                                        src="{{ $data->link }}" 
+                                        style="height:50px; width:60px;" 
+                                        frameborder="0" 
+                                        allowfullscreen>
+                                    </iframe>
+                                @else
+                                    N/A
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{route('gallery.edit', ['id' => $data->id])}}" class="btn btn-success btn-sm" title="Edit">
                                     <i class="ri-edit-box-fill"></i>

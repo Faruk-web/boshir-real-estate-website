@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Multi_image extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'multi_image'];
+    protected $fillable = ['name', 'multi_image','link'];
 }

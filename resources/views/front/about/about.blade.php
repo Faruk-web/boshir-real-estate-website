@@ -10,18 +10,20 @@
    <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            <h1 class="display-1 text-white animated slideInDown">About Us {{$setting->category_name}}</h1>
+            <h1 class="display-1 text-white animated slideInDown">{{$setting->category_name}}</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb text-uppercase mb-0">
                     <li class="breadcrumb-item"><a class="text-white" href="{{route('home')}}">Home</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">About {{$setting->description}}</li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">{{$setting->description}}</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
 
-
+     @php
+        $year = App\Models\Category::find(113);
+      @endphp
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -33,20 +35,17 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h4 class="section-title">About Us</h4>
+                    <h4 class="section-title">{{$setting->category_name}}</h4>
                     <h1 class="display-5 mb-4">{{$about->name}}</h1>
                     <p class="mb-4">{!!$about->details!!}</p>
                     <div class="d-flex align-items-center mb-5">
-                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center border border-5 border-primary" style="width: 120px; height: 120px;">
-                            <h1 class="display-1 mb-n2" data-toggle="counter-up">25</h1>
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center border border-5 border-primary" style="width: 80px; height: 80px;">
+                            <h1 class="display-1 mb-n2" data-toggle="counter-up">{{$year->category_name}}</h1>
                         </div>
                         <div class="ps-4">
-                            <h3>Years</h3>
-                            <h3>Working</h3>
-                            <h3 class="mb-0">Experience</h3>
+                            <h3>{{$year->description}}</h3>
                         </div>
                     </div>
-                    <a class="btn btn-primary py-3 px-5" href="">Read More</a>
                 </div>
             </div>
         </div>
@@ -62,35 +61,6 @@
                     <h4 class="section-title">{{$business->title}}</h4>
                     <h1 class="display-5 mb-4">{{$business->name}}</h1>
                     <p class="mb-4">{!!$business->details!!}</p>
-                    <!-- <div class="row g-4">
-                        <div class="col-12">
-                            <div class="d-flex align-items-start">
-                                <img class="flex-shrink-0" src="{{ asset('front') }}/img/icons/icon-2.png" alt="Icon">
-                                <div class="ms-4">
-                                    <h3>Design Approach</h3>
-                                    <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="d-flex align-items-start">
-                                <img class="flex-shrink-0" src="{{ asset('front') }}/img/icons/icon-3.png" alt="Icon">
-                                <div class="ms-4">
-                                    <h3>Innovative Solutions</h3>
-                                    <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="d-flex align-items-start">
-                                <img class="flex-shrink-0" src="{{ asset('front') }}/img/icons/icon-4.png" alt="Icon">
-                                <div class="ms-4">
-                                    <h3>Project Management</h3>
-                                    <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="feature-img">
@@ -102,14 +72,16 @@
         </div>
     </div>
     <!-- Feature End -->
-
+      @php
+        $teammember = App\Models\Category::find(114);
+      @endphp
 
     <!-- Team Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">Team Members</h4>
-                <h1 class="display-5 mb-4">We Are Creative Architecture Team For Your Dream Home</h1>
+                <h4 class="section-title">{{$teammember->category_name}}</h4>
+                <h1 class="display-5 mb-4">{{$teammember->description}}</h1>
             </div>
             <div class="row g-0 team-items">
                 @foreach($team as $item)

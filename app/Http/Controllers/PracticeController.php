@@ -29,7 +29,7 @@ class PracticeController extends Controller
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/practice/' . $name_gen_blog;
 
-        Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
+        Image::make($image)->resize(400, 425)->save(public_path($save_url_blog));
         $privacy->image = $save_url_blog;
     }
 
@@ -82,7 +82,7 @@ class PracticeController extends Controller
             $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             $save_url_blog = 'upload/practice/' . $name_gen_blog;
     
-            Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
+            Image::make($image)->resize(400, 425)->save(public_path($save_url_blog));
             $privacy->image = $save_url_blog;
         }
     
