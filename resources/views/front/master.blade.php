@@ -54,7 +54,7 @@
             </div>
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-2">
-                    <a class="text-body px-2" href="">Privacy & Policy</a>
+                    <a class="text-body px-2" href="{{route('privacy.view')}}">Privacy & Policy</a>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a class="btn btn-sm-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
@@ -96,7 +96,7 @@
                         <a href="{{route('teams')}}" class="dropdown-item">Support Teams</a>
                         <a href="{{route('client')}}" class="dropdown-item">Testimonial</a>
                          <a href="{{route('blog')}}" class="dropdown-item">Events</a>
-                        <a href="{{route('gallery')}}" class="dropdown-item">Privacy & Policy</a>
+                        <a href="{{route('privacy.view')}}" class="dropdown-item">Privacy & Policy</a>
                     </div>
                 </div>
  
@@ -139,7 +139,7 @@
                     <a class="btn btn-link" href="{{route('service')}}">Our Services</a>
                     <a class="btn btn-link" href="{{route('contact')}}">Contact Us</a>
                     <a class="btn btn-link" href="{{route('teams')}}">Support Teams</a>
-                    <a class="btn btn-link" href="{{route('gallery')}}">Privacy & Policy</a>
+                    <a class="btn btn-link" href="{{route('privacy.view')}}">Privacy & Policy</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-light mb-4">Newsletter</h3>

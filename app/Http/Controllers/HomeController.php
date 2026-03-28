@@ -148,10 +148,10 @@ class HomeController extends Controller
         return view('front.terms.team_details',compact('team','teams'));
     }
     
-    public function privacy()
-    {
-        return view('front.page.privacy');
-    }
+    // public function privacy()
+    // {
+    //     return view('front.privacy');
+    // }
     public function contact()
     {
         return view('front.contact.contact');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Privacy;
+use App\Models\Logo;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Intervention\Image\Facades\Image;
@@ -189,8 +190,8 @@ class PrivacyController extends Controller
     }
     public function page_view()
     {
-        $privacy = Privacy::where('status', 1)->first();
-        return view('front.privacy.privacy', compact('privacy'));
+        $privacy = Logo::first();
+        return view('front.privacy', compact('privacy'));
     }
 
     public function condition_page_view()

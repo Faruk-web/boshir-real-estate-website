@@ -62,7 +62,7 @@ Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
 Route::get('/teams', [HomeController::class, 'teams'])->name('teams');
 Route::get('/team/details/{id}', [HomeController::class, 'teamdetail'])->name('team.detail');
-Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
+// Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::post('/contact', [SettingController::class, 'contact'])->name('contact');
 
 Route::get('/error', function () {
