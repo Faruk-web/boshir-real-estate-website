@@ -112,7 +112,7 @@
                             <img class="mb-4" src="{{ asset($item->image) }}" alt="Icon">
                             <h3 class="mb-3">{{$item->name}}</h3>
                             <p class="mb-4">{!!$item->privacy!!}</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <a class="btn" href="{{route('service.deatils',$item->id)}}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
                 </div>

@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Law Firm Manage</h4>
+                <h4 class="page-title">Why Choose Us!</h4>
             </div>
         </div>
     </div>

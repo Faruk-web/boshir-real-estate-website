@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Area Page Details</h4>
+                <h4 class="page-title">Project Page Details</h4>
             </div>
         </div>
     </div>

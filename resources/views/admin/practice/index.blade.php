@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">New Practice Crate</h4>
+                <h4 class="page-title">New Project Crate</h4>
             </div>
         </div>
     </div>

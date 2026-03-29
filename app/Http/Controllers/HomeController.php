@@ -109,9 +109,8 @@ class HomeController extends Controller
     }
     public function clientdeatils($id)
     {
-        $team = Client::select('id', 'name','image')->limit(6)->get();
         $teams = Client::select('id', 'name','title', 'image','privacy')->find($id);
-        return view('front.client.client_detail',compact('team','teams'));
+        return view('front.client.client_detail',compact('teams'));
     }
     
     public function attorney()
@@ -143,9 +142,8 @@ class HomeController extends Controller
     }
     public function teamdetail($id)
     {
-        $team = Privacy::select('id', 'name', 'title', 'image')->where('status',2)->get();
         $teams = Privacy::select('id', 'name','title', 'image','privacy')->find($id);
-        return view('front.terms.team_details',compact('team','teams'));
+        return view('front.teams.team_details',compact('teams'));
     }
     
     // public function privacy()

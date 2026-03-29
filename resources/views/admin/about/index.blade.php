@@ -49,6 +49,15 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-2 col-form-label">Details</label>
+                                    <div class="col-10">
+                                        <textarea type="text" id="summernote2" name="details" class="form-control @error('details') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter Details"></textarea>
+                                        @error('details')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Sub Details</label>
                                     <div class="col-10">
                                         <textarea type="text" id="summernote3" name="sub_details" class="form-control @error('details') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter SUb Details"></textarea>
@@ -66,15 +75,7 @@
                                         @enderror
                                     </div>
                                 </div> 
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Details</label>
-                                    <div class="col-10">
-                                        <textarea type="text" id="summernote2" name="details" class="form-control @error('details') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter Details"></textarea>
-                                        @error('details')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
+                                
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Status</label>
                                     <div class="col-10">

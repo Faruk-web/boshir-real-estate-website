@@ -55,7 +55,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Image size: 856 X 500</label>
+                                    <label for="inputEmail34" class="col-3 col-form-label">Image size: 700 X 400</label>
                                     <div class="col-9">
                                         <input type="file" class="form-control" name="main_image" multiple id="inputEmail34" placeholder=" Image"/>
                                         <img src="{{asset($privacy->main_image)}}" alt="" style="height: 100px">

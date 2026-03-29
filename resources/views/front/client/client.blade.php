@@ -36,7 +36,7 @@
                 @foreach($client as $item)
                 <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='{{ asset($item->image) }}' alt=''>">
                     <p class="fs-5">{!! Str::limit($item->privacy, 150, '...') !!}</p>
-                    <h3>{{ $item->name }}</h3>
+                    <a href="{{route('client.deatils',$item->id)}}"><h3>{{ $item->name }}</h3></a>
                     <span class="text-primary">{{ $item->title }}</span>
                 </div>
               @endforeach

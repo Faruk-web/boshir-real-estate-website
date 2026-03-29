@@ -27,7 +27,7 @@
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="row g-5">
+            <div class="row">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img">
                         <img class="img-fluid" src="{{ asset($about->image) }}" alt="">
@@ -47,6 +47,8 @@
                         </div>
                     </div>
                 </div>
+                <p class="mb-4">{!!$about->sub_details!!}</p>
+                <p class="mb-4">{!!$about->privacy!!}</p>
             </div>
         </div>
     </div>

@@ -28,7 +28,7 @@ class AboutController extends Controller
             $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             $save_url_blog = 'upload/about/' . $name_gen_blog;
     
-            Image::make($image)->resize(312, 288)->save(public_path($save_url_blog));
+            Image::make($image)->resize(500, 600)->save(public_path($save_url_blog));
             $privacy->image = $save_url_blog;
         }
     

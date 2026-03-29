@@ -81,7 +81,7 @@
                             <img class="mb-4" src="{{ asset($item->image) }}" alt="Icon">
                             <h3 class="mb-3">{{$item->name}}</h3>
                             <p class="mb-4">{!!$item->privacy!!}</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
+                            <a class="btn" href="{{route('service.deatils',$item->id)}}"><i class="fa fa-plus text-primary me-3"></i>Read More</a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                  @foreach($client as $item)
                 <div class="testimonial-item text-center" data-dot="<img class='img-fluid' src='{{ asset($item->image) }}' alt=''>">
                     <p class="fs-5">{!! Str::limit($item->privacy, 150, '...') !!}</p>
-                    <h3>{{ $item->name }}</h3>
+                    <a href="{{route('client.deatils',$item->id)}}"><h3>{{ $item->name }}</h3></a>
                     <span class="text-primary">{{ $item->title }}</span>
                 </div>
               @endforeach

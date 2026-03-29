@@ -60,7 +60,7 @@
                                         </td>
                                         <td>
                                             <a href="{{route('slider.edit', ['id' => $slider->id])}}" class="btn btn-success" title="Edit"><i class="uil-edit-alt"></i></a>
-                                            <a href="{{route('slider.delete', ['id' => $slider->id])}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger" title="delete"><i class="uil-trash"></i></a>
+                                            <!-- <a href="{{route('slider.delete', ['id' => $slider->id])}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger" title="delete"><i class="uil-trash"></i></a> -->
                                         </td>
                                     </tr>
                                 @endforeach

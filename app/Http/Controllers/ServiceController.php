@@ -37,7 +37,7 @@ class ServiceController extends Controller
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/service/' . $name_gen_blog;
 
-        Image::make($image)->resize(410, 370)->save(public_path($save_url_blog));
+        Image::make($image)->resize(700, 400)->save(public_path($save_url_blog));
         $privacy->main_image = $save_url_blog;
     }
 
@@ -109,7 +109,7 @@ class ServiceController extends Controller
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/service/' . $name_gen_blog;
 
-        Image::make($image)->resize(410, 370)->save(public_path($save_url_blog));
+        Image::make($image)->resize(700, 400)->save(public_path($save_url_blog));
         $privacy->main_image = $save_url_blog;
     }
 

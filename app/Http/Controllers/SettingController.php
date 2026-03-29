@@ -194,13 +194,23 @@ public function businessedit($id)
 
 public function businessupdate(Request $request, $id)
 {
+    // Validation
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        's_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
+
     $privacy = Business::find($id);
 
     if (!$privacy) {
-        Alert::error('business not found', '');
+        Alert::error('Business not found', '');
         return redirect()->route('business.manage');
     }
+
+    // Main Image Upload
     if ($request->hasFile('image')) {
+
         if (!empty($privacy->image) && file_exists(public_path($privacy->image))) {
             try {
                 unlink(public_path($privacy->image));
@@ -208,37 +218,42 @@ public function businessupdate(Request $request, $id)
                 \Log::error("Failed to delete image: " . $e->getMessage());
             }
         }
-        // Upload new image
-        $image = $request->file('image');
-        $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        $save_url_blog = 'upload/business/' . $name_gen_blog;
 
-        Image::make($image)->resize(500, 700)->save(public_path($save_url_blog));
-        $privacy->image = $save_url_blog;
+        $image = $request->file('image');
+        $name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $path = 'upload/business/' . $name;
+
+        Image::make($image)->resize(500, 700)->save(public_path($path));
+        $privacy->image = $path;
     }
 
+    // Secondary Image Upload
     if ($request->hasFile('s_image')) {
-      if (!empty($privacy->image) && file_exists(public_path($privacy->s_image))) {
-          try {
-              unlink(public_path($privacy->s_image));
-          } catch (\Exception $e) {
-              \Log::error("Failed to delete footer s_image: " . $e->getMessage());
-          }
-      }
-      // Upload new image
-      $image = $request->file('s_image');
-      $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-      $save_url_blog = 'upload/business/' . $name_gen_blog;
-      Image::make($image)->resize(500, 700)->save(public_path($save_url_blog));
-      $privacy->s_image = $save_url_blog;
-  }
-    // Update other fields
-      $privacy->name = $request->name;
-      $privacy->details = $request->details;
-      $privacy->title = $request->title;
+
+        if (!empty($privacy->s_image) && file_exists(public_path($privacy->s_image))) {
+            try {
+                unlink(public_path($privacy->s_image));
+            } catch (\Exception $e) {
+                \Log::error("Failed to delete s_image: " . $e->getMessage());
+            }
+        }
+
+        $image = $request->file('s_image');
+        $name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $path = 'upload/business/' . $name;
+
+        Image::make($image)->resize(500, 700)->save(public_path($path));
+        $privacy->s_image = $path;
+    }
+
+    // অন্যান্য data update
+    $privacy->name = $request->name;
+    $privacy->details = $request->details;
+    $privacy->title = $request->title;
+
     $privacy->save();
 
-    Alert::success('business updated successfully', '');
+    Alert::success('Business updated successfully', '');
     return redirect()->route('business.manage');
 }
 

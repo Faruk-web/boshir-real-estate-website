@@ -64,20 +64,20 @@
                 <!-- Logo light -->
                 <a href="{{route('dashboard')}}" class="logo-light">
                             <span class="logo-lg">
-                                <img src="{{asset('/')}}admin/assets/images/logo.png" alt="logo" >
+                                <img src="{{asset('/')}}admin/assets/images/imperial.png" alt="logo" >
                             </span>
                     <span class="logo-sm">
-                                <img src="{{asset('/')}}admin/assets/images/logo-sm.png" alt="small logo">
+                                <img src="{{asset('/')}}admin/assets/images/imperial.png" alt="small logo">
                             </span>
                 </a>
 
                 <!-- Logo Dark -->
                 <a href="{{route('dashboard')}}" class="logo-dark">
                             <span class="logo-lg">
-                                <img src="{{asset('/')}}admin/assets/images/logo-dark.png" alt="dark logo" >
+                                <img src="{{asset('/')}}admin/assets/images/imperial.png" alt="dark logo" >
                             </span>
                     <span class="logo-sm">
-                                <img src="{{asset('/')}}admin/assets/images/logo-dark-sm.png" alt="small logo">
+                                <img src="{{asset('/')}}admin/assets/images/imperial.png" alt="small logo">
                             </span>
                 </a>
             </div>
@@ -111,7 +111,7 @@
                     <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                        aria-expanded="false">
                                 <span class="account-user-avatar">
-                                    <img src="{{ asset('front') }}/assets/img/favicons/fav.jpg" alt="user-image" class="rounded-circle">
+                                    <img src="{{ asset('front') }}/assets/img/logo_im.png" alt="user-image" class="rounded-circle">
                                 </span>
                         <span>
                                     <span class="account-user-name">{{Auth::user()->name}}</span>
@@ -173,22 +173,12 @@
 
         <!-- Logo Light -->
         <a href="{{route('dashboard')}}" class="logo logo-light">
-                    <span class="logo-lg">
-                        <img src="{{ asset('front') }}/assets/img/logo.png" alt="logo" height="40">
-                    </span>
-            <span class="logo-sm">
-                        <img src="{{asset('/')}}admin/assets/images/logo.png" alt="small logo" height="22">
-                    </span>
+          <h2 >Imperial Estate</h2>
         </a>
 
         <!-- Logo Dark -->
         <a href="{{route('dashboard')}}" class="logo logo-dark">
-                    <span class="logo-lg">
-                        <img src="{{asset('/')}}admin/assets/images/logo.png" alt="dark logo" height="22">
-                    </span>
-            <span class="logo-sm">
-                        <img src="{{asset('/')}}admin/assets/images/logo.png" alt="small logo" height="22">
-                    </span>
+                 <h2 >Imperial Estate</h2>
         </a>
 
         <!-- Sidebar Hover Menu Toggle Button -->
@@ -225,51 +215,31 @@
                         <span> Dashboards </span>
                     </a>
                 </li>
-
                 <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false"
-                       aria-controls="sidebarEcommerce" class="side-nav-link">
-                        <i class="uil-users-alt"></i>
-                        <span> User Module </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarEcommerce">
-                        <ul class="side-nav-second-level">
-                            <li>
-                                <a href="{{route('role.add')}}">Add Role</a>
-                            </li>
-                            <li>
-                                <a href="{{route('role.manage')}}">Manage Role</a>
-                            </li>
-                            <li>
-                                <a href="{{route('user.add')}}">Add User</a>
-                            </li>
-                            <li>
-                                <a href="{{route('user.manage')}}">Manage User</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarSlider" aria-expanded="false" aria-controls="sidebarEmail"
+                    <a data-bs-toggle="collapse" href="#sidebarsetting" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
-                        <i class="uil-sliders-v"></i>
-                        <span> Slider </span>
+                        <i class="uil-lock"></i>
+                        <span> Setting</span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarSlider">
+                    <div class="collapse" id="sidebarsetting">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="{{route('slider.add')}}">Add Slider</a>
+                                <a href="{{route('business.manage')}}">Why Choose Us!</a>
                             </li>
+                             <li>
+                                <a href="{{route('setting.manage')}}">Manage setting</a>
+                            </li>
+                            <!-- <li>
+                                <a href="{{route('peace.manage')}}">Assurance of Peace</a>
+                            </li> -->
                             <li>
-                                <a href="{{route('slider.manage')}}">Manage Slider</a>
+                                <a href="{{route('setting.contact')}}">Customer Query</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li class="side-nav-item">
+                <!-- <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarCategory" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-list-ul"></i>
@@ -286,7 +256,8 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
+                
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarPrivacy" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
@@ -306,24 +277,24 @@
                     </div>
                 </li>
                 <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarteam" aria-expanded="false" aria-controls="sidebarEmail"
+                    <a data-bs-toggle="collapse" href="#sidebarSlider" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
-                        <i class="uil-lock"></i>
-                        <span> Support Team </span>
+                        <i class="uil-sliders-v"></i>
+                        <span> Slider </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarteam">
+                    <div class="collapse" id="sidebarSlider">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="{{route('team.add')}}">New Team</a>
+                                <a href="{{route('slider.add')}}">Add Slider</a>
                             </li>
                             <li>
-                                <a href="{{route('team.manage')}}">Manage Team</a>
+                                <a href="{{route('slider.manage')}}">Manage Slider</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li class="side-nav-item">
+                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarabout" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-lock"></i>
@@ -337,78 +308,6 @@
                             </li>
                             <li>
                                 <a href="{{route('about.manage')}}">Manage About</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarclient" aria-expanded="false" aria-controls="sidebarEmail"
-                       class="side-nav-link">
-                        <i class="uil-lock"></i>
-                        <span> Our Clients</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarclient">
-                        <ul class="side-nav-second-level">
-                            <li>
-                                <a href="{{route('client.add')}}">Create Clients</a>
-                            </li>
-                            <li>
-                                <a href="{{route('client.manage')}}">Manage Clients</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarpractice" aria-expanded="false" aria-controls="sidebarEmail"
-                       class="side-nav-link">
-                        <i class="uil-lock"></i>
-                        <span> Projects</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarpractice">
-                        <ul class="side-nav-second-level">
-                            <li>
-                                <a href="{{route('practice.add')}}">Create Projects</a>
-                            </li>
-                            <li>
-                                <a href="{{route('practice.manage')}}">Manage Projects</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarProperty" aria-expanded="false" aria-controls="sidebarEmail"
-                       class="side-nav-link">
-                        <i class="uil-lock"></i>
-                        <span> Blog</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarProperty">
-                        <ul class="side-nav-second-level">
-                            <li>
-                                <a href="{{route('propertyy.add')}}">Create Blog</a>
-                            </li>
-                            <li>
-                                <a href="{{route('propertyy.manage')}}">Manage Blog</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebargallery" aria-expanded="false" aria-controls="sidebarEmail"
-                       class="side-nav-link">
-                        <i class="uil-lock"></i>
-                        <span> Gallery</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebargallery">
-                        <ul class="side-nav-second-level">
-                            <li>
-                                <a href="{{route('gallery.add')}}">Create Blog</a>
-                            </li>
-                            <li>
-                                <a href="{{route('gallery.manage')}}">Manage Blog</a>
                             </li>
                         </ul>
                     </div>
@@ -432,6 +331,100 @@
                     </div>
                 </li>
                 <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarpractice" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span>All Projects</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarpractice">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('practice.add')}}">Create Projects</a>
+                            </li>
+                            <li>
+                                <a href="{{route('practice.manage')}}">Manage Projects</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebargallery" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Gallery</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebargallery">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('gallery.add')}}">Create Gallery</a>
+                            </li>
+                            <li>
+                                <a href="{{route('gallery.manage')}}">Manage Gallery</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarteam" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Support Team </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarteam">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('team.add')}}">New Team</a>
+                            </li>
+                            <li>
+                                <a href="{{route('team.manage')}}">Manage Team</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+               
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarclient" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Our Clients</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarclient">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('client.add')}}">Create Clients</a>
+                            </li>
+                            <li>
+                                <a href="{{route('client.manage')}}">Manage Clients</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarProperty" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Blog</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarProperty">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('propertyy.add')}}">Create Blog</a>
+                            </li>
+                            <li>
+                                <a href="{{route('propertyy.manage')}}">Manage Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
+                
+                <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarlogo" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-lock"></i>
@@ -449,31 +442,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="side-nav-item">
-                    <a data-bs-toggle="collapse" href="#sidebarsetting" aria-expanded="false" aria-controls="sidebarEmail"
-                       class="side-nav-link">
-                        <i class="uil-lock"></i>
-                        <span> Setting</span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarsetting">
-                        <ul class="side-nav-second-level">
-                            <li>
-                                <a href="{{route('business.manage')}}">Law Firm Manage</a>
-                            </li>
-                            <li>
-                                <a href="{{route('peace.manage')}}">Assurance of Peace</a>
-                            </li>
-                            <li>
-                                <a href="{{route('setting.contact')}}">Customer Query</a>
-                            </li>
-                            <li>
-                                <a href="{{route('setting.manage')}}">Manage setting</a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </li>
+                
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarpage" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
@@ -528,14 +497,14 @@
                     <div class="collapse" id="sidebarpagedetails">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="{{route('category.areadetails')}}">Area Details</a>
+                                <a href="{{route('category.areadetails')}}">Project Details</a>
                             </li>
                             <li>
                                 <a href="{{route('category.clientdetails')}}">Client Details</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="{{route('category.advocatedetails')}}">Advocate Details</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="{{route('category.teamdetails')}}">Team Details</a>
                             </li>
@@ -544,6 +513,30 @@
                             </li>
                             <li>
                                 <a href="{{route('category.servicedetails')}}">Service Details</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false"
+                       aria-controls="sidebarEcommerce" class="side-nav-link">
+                        <i class="uil-users-alt"></i>
+                        <span> User Module </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarEcommerce">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('role.add')}}">Add Role</a>
+                            </li>
+                            <li>
+                                <a href="{{route('role.manage')}}">Manage Role</a>
+                            </li>
+                            <li>
+                                <a href="{{route('user.add')}}">Add User</a>
+                            </li>
+                            <li>
+                                <a href="{{route('user.manage')}}">Manage User</a>
                             </li>
                         </ul>
                     </div>

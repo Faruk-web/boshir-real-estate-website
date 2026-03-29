@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Privacy & Policy Manage</h4>
+                <h4 class="page-title">Blog Manage</h4>
             </div>
         </div>
     </div>
@@ -61,9 +61,9 @@
                                 <a href="{{route('propertyy.edit', ['id' => $data->id])}}" class="btn btn-success btn-sm" title="Edit">
                                     <i class="ri-edit-box-fill"></i>
                                 </a>
-                                <button type="button" onclick="confirmDelete({{$data->id}});" class="btn btn-danger btn-sm" title="Delete">
+                                <!-- <button type="button" onclick="confirmDelete({{$data->id}});" class="btn btn-danger btn-sm" title="Delete">
                                     <i class="ri-chat-delete-fill"></i>
-                                </button>
+                                </button> -->
 
                                 <form action="{{route('propertyy.delete', ['id' => $data->id])}}" method="POST" id="privacyDeleteForm{{$data->id}}">
                                     @csrf
