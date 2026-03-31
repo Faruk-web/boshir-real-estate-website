@@ -15,25 +15,82 @@ class PracticeController extends Controller
         return view('admin.practice.index');
     }
 
-    public function create(Request $request)
+//     public function create(Request $request)
+// {
+//     $request->validate([
+//         'name' => 'required',
+//     ]);
+
+//     $privacy = new Practice();
+
+//     // Handle image upload
+//     if ($request->hasFile('image')) {
+//         $image = $request->file('image');
+//         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+//         $save_url_blog = 'upload/practice/' . $name_gen_blog;
+
+//         Image::make($image)->resize(400, 425)->save(public_path($save_url_blog));
+//         $privacy->image = $save_url_blog;
+//     }
+
+//     // Assign other fields
+//     $privacy->name = $request->name;
+//     $privacy->title = $request->title;
+//     $privacy->privacy = $request->privacy;
+//     $privacy->status = $request->status;
+
+//     $privacy->save();
+
+//     Alert::success('Practice Added Successfully', '');
+//     return redirect()->back();
+// }
+
+public function create(Request $request)
 {
     $request->validate([
-        'name' => 'required',
+        'name'  => 'required',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
     ]);
 
     $privacy = new Practice();
 
-    // Handle image upload
+    // ================= IMAGE UPLOAD =================
     if ($request->hasFile('image')) {
         $image = $request->file('image');
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/practice/' . $name_gen_blog;
 
+        // folder create if not exists
+        if (!file_exists(public_path('upload/practice'))) {
+            mkdir(public_path('upload/practice'), 0755, true);
+        }
+
         Image::make($image)->resize(400, 425)->save(public_path($save_url_blog));
         $privacy->image = $save_url_blog;
     }
 
-    // Assign other fields
+    // ================= PDF (BROCHURE) UPLOAD =================
+    if ($request->hasFile('file')) {
+        $file = $request->file('file');
+
+        // unique name
+        $file_name = 'brochure_' . time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+
+        $destination = public_path('upload/practice');
+
+        // folder create if not exists
+        if (!file_exists($destination)) {
+            mkdir($destination, 0755, true);
+        }
+
+        // move file
+        $file->move($destination, $file_name);
+
+        // save path
+        $privacy->file = 'upload/practice/' . $file_name;
+    }
+
+    // ================= OTHER DATA =================
     $privacy->name = $request->name;
     $privacy->title = $request->title;
     $privacy->privacy = $request->privacy;
@@ -44,7 +101,6 @@ class PracticeController extends Controller
     Alert::success('Practice Added Successfully', '');
     return redirect()->back();
 }
-
   public function manage()
     {
         $privacy = Practice::orderBy('id', 'asc')->get();
@@ -57,48 +113,103 @@ class PracticeController extends Controller
         return view('admin.practice.edit', compact('privacy'));
     }
 
-    public function update(Request $request, $id)
-    {
-        $privacy = Practice::find($id);
+    // public function update(Request $request, $id)
+    // {
+    //     $privacy = Practice::find($id);
     
-        if (!$privacy) {
-            Alert::error('Practice not found', '');
-            return redirect()->route('practice.manage');
-        }
+    //     if (!$privacy) {
+    //         Alert::error('Practice not found', '');
+    //         return redirect()->route('practice.manage');
+    //     }
     
-        // Check if a new image is uploaded
-        if ($request->hasFile('image')) {
-            // Delete old image safely
-            if (!empty($privacy->image) && file_exists(public_path($privacy->image))) {
-                try {
-                    unlink(public_path($privacy->image));
-                } catch (\Exception $e) {
-                    \Log::error("Failed to delete image: " . $e->getMessage());
-                }
-            }
+    //     // Check if a new image is uploaded
+    //     if ($request->hasFile('image')) {
+    //         // Delete old image safely
+    //         if (!empty($privacy->image) && file_exists(public_path($privacy->image))) {
+    //             try {
+    //                 unlink(public_path($privacy->image));
+    //             } catch (\Exception $e) {
+    //                 \Log::error("Failed to delete image: " . $e->getMessage());
+    //             }
+    //         }
     
-            // Upload new image
-            $image = $request->file('image');
-            $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            $save_url_blog = 'upload/practice/' . $name_gen_blog;
+    //         // Upload new image
+    //         $image = $request->file('image');
+    //         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+    //         $save_url_blog = 'upload/practice/' . $name_gen_blog;
     
-            Image::make($image)->resize(400, 425)->save(public_path($save_url_blog));
-            $privacy->image = $save_url_blog;
-        }
+    //         Image::make($image)->resize(400, 425)->save(public_path($save_url_blog));
+    //         $privacy->image = $save_url_blog;
+    //     }
     
-        // Update other fields
-        $privacy->name = $request->name;
-        $privacy->title = $request->title;
-        $privacy->privacy = $request->privacy;
-        $privacy->status = $request->status;
+    //     // Update other fields
+    //     $privacy->name = $request->name;
+    //     $privacy->title = $request->title;
+    //     $privacy->privacy = $request->privacy;
+    //     $privacy->status = $request->status;
     
-        $privacy->save();
+    //     $privacy->save();
     
-        Alert::success('Practice updated successfully', '');
+    //     Alert::success('Practice updated successfully', '');
+    //     return redirect()->route('practice.manage');
+    // }
+   
+public function update(Request $request, $id)
+{
+    $privacy = Practice::find($id);
+
+    if (!$privacy) {
+        Alert::error('Practice not found', '');
         return redirect()->route('practice.manage');
     }
-   
 
+    // Validation
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
+
+    // ================= IMAGE UPLOAD =================
+    if ($request->hasFile('image')) {
+
+        if (!empty($privacy->image) && file_exists(public_path($privacy->image))) {
+            unlink(public_path($privacy->image));
+        }
+
+        $image = $request->file('image');
+        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $save_url = 'upload/practice/' . $name_gen;
+
+        Image::make($image)->resize(400, 425)->save(public_path($save_url));
+        $privacy->image = $save_url;
+    }
+
+    // ================= PDF UPLOAD =================
+    if ($request->hasFile('file')) {
+
+        if (!empty($privacy->file) && file_exists(public_path($privacy->file))) {
+            unlink(public_path($privacy->file));
+        }
+
+        $file = $request->file('file');
+        $file_name = hexdec(uniqid()) . '.' . $file->getClientOriginalExtension();
+        $save_path = 'upload/practice/' . $file_name;
+
+        $file->move(public_path('upload/practice'), $file_name);
+        $privacy->file = $save_path;
+    }
+
+    // ================= OTHER DATA =================
+    $privacy->name = $request->name;
+    $privacy->title = $request->title;
+    $privacy->privacy = $request->privacy;
+    $privacy->status = $request->status;
+
+    $privacy->save();
+
+    Alert::success('Practice updated successfully', '');
+    return redirect()->route('practice.manage');
+}
     public function delete($id)
     {
         $privacy = Practice::find($id);

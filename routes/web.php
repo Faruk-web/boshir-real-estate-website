@@ -63,7 +63,7 @@ Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
 Route::get('/teams', [HomeController::class, 'teams'])->name('teams');
 Route::get('/team/details/{id}', [HomeController::class, 'teamdetail'])->name('team.detail');
 // Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
-Route::post('/contact', [SettingController::class, 'contact'])->name('contact');
+Route::post('/contact/stor', [SettingController::class, 'contactstor'])->name('contact.stor');
 
 Route::get('/error', function () {
     return view('errors.404');

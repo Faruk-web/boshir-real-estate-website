@@ -39,6 +39,7 @@
                             <th>Name</th>
                             <th>Designation</th>
                             <th>Image</th>
+                            <th>Brochure (PDF)</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -50,6 +51,7 @@
                             <td>{{$data->name}}</td>
                             <td>{{$data->title}}</td>
                             <td><img src="{{asset($data->image)}}" alt="" style="height: 50px"></td>
+                            <td> <a href="{{ asset($data->file) }}" download>Download Brochure</a></td>
                             <td>
                                {{$data->status}}
                             </td>

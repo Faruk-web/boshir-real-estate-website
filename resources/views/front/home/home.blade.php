@@ -26,15 +26,54 @@
         </div>
     </div>
     <!-- Carousel End -->
+     @php
+        $popularproject = App\Models\Category::find(110);
+      @endphp
+ <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h4 class="section-title">{{$popularproject->category_name}}</h4>
+                    <h1 class="display-5 mb-4">{{$popularproject->description}}</h1>
+            </div>
+            <div class="row g-0 team-items">
+               @foreach($prectice as $item)
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item position-relative">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{{ asset($item->image) }}" alt="">
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="bg-light text-center p-4">
+                           <a href="{{route('practice.deatils',$item->id)}}" > <h3 class="mt-2">{{ $item->name }}</h3></a>
+                            <span class="text-primary">{{ $item->title }}</span>
 
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+     
       @php
         $ongoing = App\Models\Category::find(105);
         $upcoming = App\Models\Category::find(106);
         $compleat = App\Models\Category::find(107);
+        $projecttype = App\Models\Category::find(166);
       @endphp
     <!-- Facts Start -->
     <div class="container-xxl py-5">
         <div class="container pt-5">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h4 class="section-title">{{$projecttype->category_name}}</h4>
+                    <h1 class="display-5 mb-4">{{$projecttype->description}}</h1>
+            </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item d-flex position-relative text-center h-100" >
@@ -73,7 +112,6 @@
         </div>
     </div>
     <!-- Facts End -->
-
     <!-- Feature Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -178,43 +216,6 @@
         </div>
     </div>
     <!-- Project End -->
-
-      @php
-        $teamhome = App\Models\Category::find(110);
-      @endphp
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h4 class="section-title">{{$teamhome->category_name}}</h4>
-                <h1 class="display-5 mb-4">{{$teamhome->description}}</h1>
-            </div>
-            <div class="row g-0 team-items">
-                @foreach($team as $item)
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid" src="{{ asset($item->image) }}" alt="">
-                            
-                            <div class="team-social text-center">
-                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <a href="{{route('team.detail',$item->id)}}" class="link-btn">
-                        <div class="bg-light text-center p-4">
-                            <h3 class="mt-2">{{ $item->name }}</h3>
-                            <span class="text-primary">{{ $item->title }}</span>
-                        </div>
-                         </a>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-          </div>
-        </div>
-    <!-- Team End -->
       @php
         $appointment = App\Models\Category::find(111);
         $setting = App\Models\Setting::select('location', 'p_phone', 'p_mail')->find(1);
@@ -254,45 +255,48 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <form action="{{route('contact.stor')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="row g-3">
-                        <div class="col-12 col-sm-6">
-                            <input type="text" class="form-control" placeholder="Your Name" style="height: 55px;">
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <input type="email" class="form-control" placeholder="Your Email" style="height: 55px;">
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <input type="text" class="form-control" placeholder="Your Mobile" style="height: 55px;">
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <select class="form-select" style="height: 55px;">
-                                <option selected>Choose Service</option>
-                                <option value="1">Service 1</option>
-                                <option value="2">Service 2</option>
-                                <option value="3">Service 3</option>
-                            </select>
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <div class="date" id="date" data-target-input="nearest">
-                                <input type="text"
-                                    class="form-control datetimepicker-input"
-                                    placeholder="Choose Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                <label for="name">Your Name</label>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-6">
-                            <div class="time" id="time" data-target-input="nearest">
-                                <input type="text"
-                                    class="form-control datetimepicker-input"
-                                    placeholder="Choose Date" data-target="#time" data-toggle="datetimepicker" style="height: 55px;">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" name="phone" class="form-control" id="Phone" placeholder="Your Phone">
+                                <label for="email">Your Phone</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
+                                <label for="email">Your Email</label>
                             </div>
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                            <div class="form-floating">
+                                <input type="text" name="profession" class="form-control" id="profession" placeholder="Profession">
+                                <label for="profession">Profession</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12">
+                            <div class="datetime" id="date" data-target-input="nearest">
+                                <input type="text" name="datetime"
+                                    class="form-control datetimepicker-input"
+                                    placeholder="Choose Date & Time" data-target="#date" data-toggle="datetimepicker" style="height: 55px;">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" class="form-control" rows="5" placeholder="Message"></textarea>
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>
                         </div>
                     </div>
+                   </form>
                 </div>
             </div>
         </div>

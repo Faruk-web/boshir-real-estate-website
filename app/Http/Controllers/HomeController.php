@@ -14,7 +14,6 @@ use App\Models\Practice;
 use App\Models\About;
 use App\Models\Board;
 use App\Models\Business;
-use App\Models\Peace;
 use App\Models\Logo;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
@@ -23,25 +22,16 @@ class HomeController extends Controller
     public function index()
     {
 
-        $prectice = Practice::select('id', 'name', 'image','title')->orderBy('id', 'desc')->limit(6)->get()->map(function ($item) {
-            $item->privacy = Str::limit($item->privacy, 100);
-            return $item;
-        });
-        $blog = Property::select('id', 'name', 'image', 'privacy')->orderBy('id', 'DESC')->get()->map(function ($item) {
-            $item->privacy = Str::limit($item->privacy, 70);
-            return $item;
-        });
+        $prectice = Practice::select('id', 'name','title','image')->where('status','ongoing')->get();
         $Slider=Slider::select('id','image','title','s_title','link')->get();
         $projects  = Privacy::select('id', 'name', 'title', 'image','privacy')->where('status',1)->limit(4)->get();
-        $team  = Privacy::select('id', 'name', 'title', 'image')->where('status',2)->limit(4)->get();
         $business=Business::find(1);
-        $peace=Peace::find(1);
         $service = Board::select('id', 'name', 'image', 'main_image','privacy')->orderBy('id', 'DESC')->get()->map(function ($item) {
             $item->privacy = Str::limit($item->privacy, 100);
             return $item;
         });
 
-        return view('front.home.home',compact('Slider','team','projects','prectice','blog','business','peace','service'));
+        return view('front.home.home',compact('Slider','projects','prectice','business','service'));
     }
     public function service()
     {
@@ -54,9 +44,8 @@ class HomeController extends Controller
     }
     public function servicedeatils($id)
     {
-        $team = Board::select('id', 'name', 'image')->orderBy('id', 'asc')->get();
         $teams = Board::select('id', 'name', 'main_image','privacy')->find($id);
-        return view('front.service.service_details',compact('team','teams'));
+        return view('front.service.service_details',compact('teams'));
     }
     
     public function blogs()
@@ -69,16 +58,14 @@ class HomeController extends Controller
     }
     public function blogDetails($id)
     {
-        $blog = Property::select('id', 'name', 'image')->orderBy('id', 'asc')->get();
         $blogs = Property::select('id', 'name', 'image','privacy','condition')->find($id);
-        return view('front.blog.blog_details',compact('blog','blogs'));
+        return view('front.blog.blog_details',compact('blogs'));
     }
     public function about()
     {
         $about=About::select('id','name','image','sub_details','details','privacy')->find(28);
          $business=Business::find(1);
-         $team  = Privacy::select('id', 'name', 'title', 'image')->where('status',2)->limit(4)->get();
-        return view('front.about.about',compact('about','business','team'));
+        return view('front.about.about',compact('about','business'));
     }
     public function ongoing()
     {
@@ -97,9 +84,8 @@ class HomeController extends Controller
     }
     public function practicedeatils($id)
     {
-        $team = Practice::select('id', 'name','image')->limit(6)->get();
-        $teams = Practice::select('id', 'name','title', 'image','privacy')->find($id);
-        return view('front.project.project_deatils',compact('team','teams'));
+        $teams = Practice::select('id', 'name','title', 'image','file','privacy')->find($id);
+        return view('front.project.project_deatils',compact('teams'));
     }
     
     public function client()

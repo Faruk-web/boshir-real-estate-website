@@ -31,7 +31,7 @@
             </div>
             <div class="row g-0 team-items">
                @foreach($prectice as $item)
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative">
                         <div class="position-relative">
                             <img class="img-fluid" src="{{ asset($item->image) }}" alt="">

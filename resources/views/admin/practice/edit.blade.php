@@ -75,6 +75,16 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
+                                    <label class="col-2 col-form-label">Brochure (PDF)</label>
+                                    <div class="col-10">
+                                        <input type="file" name="file" class="form-control @error('file') is-invalid @enderror" id="exampleInputPassword1">
+                                        <img src="{{asset($privacy->file)}}" alt="" style="height: 100px">
+                                        @error('file')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Details</label>
                                     <div class="col-10">
                                         <textarea type="text" id="summernote" name="privacy" class="form-control @error('privacy') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter privacy">{{$privacy->privacy}}</textarea>

@@ -65,6 +65,12 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
+                                    <label for="inputEmail34" class="col-2 col-form-label">Brochure (PDF)</label>
+                                    <div class="col-10">
+                                        <input type="file" class="form-control" name="file" multiple id="inputEmail34" placeholder="Property file"/>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Details</label>
                                     <div class="col-10">
                                         <textarea type="text" id="summernote" name="privacy" class="form-control @error('privacy') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter privacy"></textarea>

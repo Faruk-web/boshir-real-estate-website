@@ -10,7 +10,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
 use enshrined\svgSanitize\Sanitizer;
 use Illuminate\Http\Request;
-
 class SettingController extends Controller
 {
     //
@@ -141,22 +140,40 @@ class SettingController extends Controller
           return redirect()->route('setting.manage');
       }
     //  ===================== contact form ====================================
-    public function contact(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-        ]);
-        $privacy = new Contact();
+
+public function contactstor(Request $request)
+{
+    // Validation
+    $request->validate([
+        'name' => 'required',
+        'phone' => 'required',
+    ]);
+
+    $privacy = new Contact();
+
+    if ($request->datetime) {
+        // যদি datetime থাকে
         $privacy->name = $request->name;
         $privacy->phone = $request->phone;
         $privacy->email = $request->email;
+        $privacy->profession = $request->profession;
+        $privacy->datetime = Carbon::createFromFormat('m/d/Y h:i A', $request->datetime)
+                                   ->format('Y-m-d H:i:s');
         $privacy->message = $request->message;
-        $privacy->save();
-    
-        Alert::success('Your massage submitted Successfully', '');
-        return redirect()->back()->with('success', 'Your massage submitted successfully!');
+    } else {
+        // যদি datetime না থাকে
+        $privacy->name = $request->name;
+        $privacy->phone = $request->phone;
+        $privacy->email = $request->email;
+        $privacy->profession = $request->profession;
+        $privacy->datetime = null;
+        $privacy->message = $request->message;
     }
+
+    $privacy->save();
+
+    return redirect()->back()->with('success', 'Your message submitted successfully!');
+}
     public function contactdata()
     {
         $privacy = Contact::orderBy('id', 'asc')->get()->map(function ($contact) {

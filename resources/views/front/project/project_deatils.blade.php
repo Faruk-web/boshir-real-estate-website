@@ -36,6 +36,13 @@
                     <h4 class="section-title">{{$teams->title}}</h4>
                     <p class="mb-4">{!!$teams->privacy!!}</p>
                 </div>
+                @if($teams->file)
+                    <a class="btn btn-primary py-3 px-5 mt-3" href="{{ asset($teams->file) }}" target="_blank">View Brochure</a>
+                    
+                    <br>
+                    
+                    <a class="btn btn-primary py-3 px-5 mt-3" href="{{ asset($teams->file) }}" download>Download Brochure</a>
+                @endif
             </div>
         </div>
     </div>

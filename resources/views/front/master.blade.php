@@ -33,7 +33,17 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('front') }}/css/style.css" rel="stylesheet">
 </head>
+@if(session('success'))
+    <div class="alert alert-success" id="successAlert">
+        {{ session('success') }}
+    </div>
 
+    <script>
+        setTimeout(() => {
+            document.getElementById('successAlert').style.display = 'none';
+        }, 3000);
+    </script>
+@endif
 <body>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -92,10 +102,10 @@
                  <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu border-0 m-0">
+                        <a href="{{route('blog')}}" class="dropdown-item">Events</a>
                         <a href="{{route('gallery')}}" class="dropdown-item">Gallery</a>
-                        <a href="{{route('teams')}}" class="dropdown-item">Support Teams</a>
+                        <!-- <a href="{{route('teams')}}" class="dropdown-item">Support Teams</a> -->
                         <a href="{{route('client')}}" class="dropdown-item">Testimonial</a>
-                         <a href="{{route('blog')}}" class="dropdown-item">Events</a>
                         <a href="{{route('privacy.view')}}" class="dropdown-item">Privacy & Policy</a>
                     </div>
                 </div>
